@@ -68,7 +68,7 @@
             <tbody>
                 <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>Research</h2>
+                  <h2>Research & Engineering</h2>
                   <p>
                     I have always been working on Robotics. Currently I'm interested in Embodied AI.
                   </p>
@@ -82,11 +82,9 @@
               <tr onmouseout="dex_7dof()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='dex_7dof'><video  width=100% muted autoplay loop>
-                    <source src="images/dex_7dof.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/dex_7dof.gif' width=100%>
+                    <div class="two" id='dex_7dof' style="opacity: 0;">
+                    </div>
+                    <img src='images/dex_7dof.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -117,11 +115,9 @@
               <tr onmouseout="tactile_sensor()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='tactile_sensor'><video  width=100% muted autoplay loop>
-                    <source src="images/tactile_sensor.jpg" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/tactile_sensor.jpg' width=100%>
+                    <div class="two" id='tactile_sensor' style="opacity: 0;">
+                    </div>
+                    <img src='images/tactile_sensor.jpg' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -150,11 +146,9 @@
               <tr onmouseout="full_stack_6_dof()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='full_stack_6_dof'><video  width=100% muted autoplay loop>
-                    <source src="images/full_stack_6_dof.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/full_stack_6_dof.gif' width=100%>
+                    <div class="two" id='full_stack_6_dof' style="opacity: 0;">
+                    </div>
+                    <img src='images/full_stack_6_dof.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -185,11 +179,9 @@
               <tr onmouseout="bimanual_demonstration()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='bimanual_demonstration'><video  width=100% muted autoplay loop>
-                    <source src="images/bimanual_demonstration.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/bimanual_demonstration.gif' width=100%>
+                    <div class="two" id='bimanual_demonstration' style="opacity: 0;">
+                    </div>
+                    <img src='images/bimanual_demonstration.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -223,11 +215,9 @@
               <tr onmouseout="mini_pupper_2()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='mini_pupper_2'><video  width=100% muted autoplay loop>
-                    <source src="images/mini_pupper_2.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/mini_pupper_2.gif' width=100%>
+                    <div class="two" id='mini_pupper_2' style="opacity: 0;">
+                    </div>
+                    <img src='images/mini_pupper_2.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -257,14 +247,59 @@
                 </td>
               </tr>
 
+              <tr onmouseout="m2sim()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='m2sim' style="opacity: 0;">
+                    </div>
+                    <img src='images/m2sim.jpg' width=105%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('m2sim').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('m2sim').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle"><a href="data/CICAI_Paper_Camera_Ready.pdf">Long-term Interactive Driving Simulation: MPC to the Rescue</a></span>
+                  <br>
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <a href="https://scholar.google.com/citations?user=4PXGeaYAAAAJ">Zhijie Yan</a>, 
+                  <a href="https://www.linkedin.com/in/yang-li-2000/">Yang Li</a>, 
+                  <a href="https://philipflyg.github.io/">Pengfei Li</a>, 
+                  <a href="https://scholar.google.com/citations?user=KlHuj2QAAAAJ">Yifeng Shi</a>, 
+                  Nairui Luo, 
+                  <a href="https://scholar.google.com/citations?user=qCbWxzgAAAAJ">Xu Gao</a>, 
+                  <a href="https://scholar.google.com/citations?user=alz2MpAAAAAJ">Yongliang Shi</a>, 
+                  Pengfei Huang, 
+                  <a href="https://air.tsinghua.edu.cn/en/info/1046/1477.htm">Jiangtao Gong</a>, 
+                  <a href="https://air.tsinghua.edu.cn/en/info/1046/1196.htm">Guyue Zhou</a>, 
+                  <a href="https://air.tsinghua.edu.cn/en/info/1046/1621.htm">Yilun Chen</a>, 
+                  <a href="https://hangzhaomit.github.io/">Hang Zhao</a>, 
+                  <a href="https://sites.google.com/view/fromandto">Hao Zhao</a>, 
+                  </br>
+                  <em>CICAI</em>, 2023
+                  <p>
+                    Cooperated with Baidu Apollo and MARS Lab at Tsinghua University. We propose to introduce a tailored Model Predictive Control 
+                    (MPC) module as a rescue into the state-of-the art 
+                    interactive trajectory prediction model M2I. Notably, our method can effectively address the Out-of-Domain (OOD) 
+                    problem in long-term simulation by enforcing a flexible regularization that admits the replayed data, while still 
+                    enjoying the diversity of data-driven predictions.
+                  </p>
+                </td>
+              </tr>
+
               <tr onmouseout="multi_robot()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='multi_robot'><video  width=100% muted autoplay loop>
-                    <source src="images/multi_robot.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/multi_robot.gif' width=100%>
+                    <div class="two" id='multi_robot' style="opacity: 0;">
+                    </div>
+                    <img src='images/multi_robot.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -298,11 +333,9 @@
               <tr onmouseout="rmus()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='rmus'><video  width=100% muted autoplay loop>
-                    <source src="images/rmus.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/rmus.gif' width=100%>
+                    <div class="two" id='rmus' style="opacity: 0;">
+                    </div>
+                    <img src='images/rmus.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -334,11 +367,9 @@
               <tr onmouseout="mini_pupper()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                    <div class="two" id='mini_pupper'><video  width=100% muted autoplay loop>
-                    <source src="images/mini_pupper.gif" type="video/mp4">
-                    Your browser does not support the video tag.
-                    </video></div>
-                    <img src='images/mini_pupper.gif' width=100%>
+                    <div class="two" id='mini_pupper' style="opacity: 0;">
+                    </div>
+                    <img src='images/mini_pupper.gif' width=105%>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
