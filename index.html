@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Zhengxiao Han</title>
+
+    <meta name="author" content="Zhengxiao Han">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                  <p class="name" style="text-align: center;">
+                    Zhengxiao Han
+                  </p>
+                  <p>I'm a Visiting Researcher at 
+                    <a href="https://cfcs.pku.edu.cn/english/">Center on Frontiers of Computing Studies, Peking University</a>, 
+                    under the supervision of Prof. <a href="https://zsdonghao.github.io/"> Hao Dong</a>.
+                  </p>
+                  <p>
+                    I completed my Bachelor's degree in 2023 at <a href="https://english.buct.edu.cn/main.htm">BUCT</a>, 
+                    where I used to lead the <a href="https://github.com/mvyp/"> SIE Robotics Club</a>.
+                  </p>
+                  <p>
+                    I spent two years at <a href="https://github.com/AIR-DISCOVER">DISCOVER Lab, Tsinghua University</a>, 
+                    under the supervision of <a href="https://air.tsinghua.edu.cn/en/info/1046/1196.htm">Prof. Guyue Zhou</a>, 
+                    <a href="https://sites.google.com/view/fromandto">Prof. Hao Zhao</a>, 
+                    <a href="https://air.tsinghua.edu.cn/en/info/1046/1477.htm">Prof. Jiangtao Gong</a>, 
+                    and <a href="https://x.com/ARX_Zhang">Engineer Xinliang Zhang</a>.
+                  </p>
+                  <p>
+                    Proudly, I am the core contributor of 
+                    <a href="https://www.kickstarter.com/projects/336477435/mini-pupper-open-sourceros-robot-dog-kit"> Mini Pupper</a>, 
+                    an open-source quadruped robot.
+                  </p>
+                  <p style="text-align:center">
+                    <a href="https://www.linkedin.com/in/purimagination/">LinkedIn</a> &nbsp;/&nbsp;
+                    <a href="https://github.com/0nhc/">GitHub</a> &nbsp;/&nbsp;
+                    <a href="https://x.com/serious0nhc">X</a> &nbsp;/&nbsp;
+                    <a href="https://scholar.google.com/citations?user=9vwMTB8AAAAJ">Google Scholar</a> &nbsp;/&nbsp;
+                    <a href="mailto:hanzx@u.northwestern.edu">Email</a>
+                  </p>
+                </td>
+                <td style="padding:2.5%;width:40%;max-width:40%">
+                  <a href="index.html">
+                    <img 
+                    style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" 
+                    alt="profile photo" 
+                    src="images/favicon/android-chrome-192x192.png" 
+                    class="hoverZoomLink">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+                <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle">
+                  <h2>Research</h2>
+                  <p>
+                    I have always been working on Robotics. Currently I'm interested in Embodied AI.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr onmouseout="dex_7dof()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='dex_7dof'><video  width=100% muted autoplay loop>
+                    <source src="images/dex_7dof.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/dex_7dof.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('dex_7dof').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('dex_7dof').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle">(Ongoing Project) 7-DOF Humanoid Robotic Arm with Tactile-enabled Dexterous Hand</span>
+                  <br>
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <a href="https://www.linkedin.com/in/jinzhou-l-78001212a/">Jinzhou Li</a>, 
+                  <a href="https://ceca.pku.edu.cn/en/people_/faculty_/tao_wang/">Tao Wang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+                  <p>
+                  Constructed a 7-DOF humanoid robotic arm with dexterous hands equipped with tactile sensors for data collection, 
+                  and interfaced it with ROS Control and MoveIt. All work was done by me independently.
+                  We will work on encoding visual, tactile (not vision-based) and joint signals for imitation learning and deploy learned policies on real robots.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="tactile_sensor()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='tactile_sensor'><video  width=100% muted autoplay loop>
+                    <source src="images/tactile_sensor.jpg" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/tactile_sensor.jpg' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('tactile_sensor').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('tactile_sensor').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle">(Ongoing Project) Vision-based Tactile Sensor</span>
+                  <br>
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+                  <p>
+                  Proposed a binocular vision-based tactile sensor. Aiming at utilizing dense markers and binocular 
+                  cameras to enhance the accuracy of vision-based tactile sensors.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="full_stack_6_dof()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='full_stack_6_dof'><video  width=100% muted autoplay loop>
+                    <source src="images/full_stack_6_dof.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/full_stack_6_dof.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('full_stack_6_dof').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('full_stack_6_dof').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Full-stack 6-DOF robotic arm development</span>
+                  <br>
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>	
+                  <p>
+                  Achived hardware design of a 6-DOF robotic arm and a 2-finger adaptive parallel gripper 
+                  (same capability as <a href="https://robotiq.com/products/2f85-140-adaptive-robot-gripper">Robotiq 2f-85 Gripper</a>), 
+                  and interfaced all hardware under ROS Control and MoveIt. Interfaced the robotic arm with 
+                  <a href="https://graspnet.net/">GraspNet</a> and achived a grasping demo. All work was done by me independently.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="bimanual_demonstration()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='bimanual_demonstration'><video  width=100% muted autoplay loop>
+                    <source src="images/bimanual_demonstration.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/bimanual_demonstration.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('bimanual_demonstration').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('bimanual_demonstration').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle"><a href="https://www.bilibili.com/video/BV1iN411t7eb">Bimanual Demonstration System</a></span>
+                  <br>
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <a href="https://github.com/ShanningZhuang">Shanning Zhuang</a>, 
+                  <a href="http://robotics-tongji.org/members/zihangchen">Zihang Chen</a>, 
+                  <a href="https://github.com/GDDG08">Zihan Zhuang</a>, 
+                  <a href="http://www.iden.cn/home/active.NewYouzhan/workinfo?sc=yx&id=13012">Ximing Wang</a>, 
+                  <a href="https://air.tsinghua.edu.cn/en/info/1046/1477.htm">Jiangtao Gong</a>
+                  <p>
+                  Inspired by ALOHA, we proposed an improved bimanual demonstration system. 
+                  Constructed the SDK using C++ and CMake. Utilized KDL to solve kinematic and dynamic problems, 
+                  then achived gravity compensation based on inverse dynamics. 
+                  Designed a parallel two-finger gripper based on rack-gear structures. 
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="mini_pupper_2()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='mini_pupper_2'><video  width=100% muted autoplay loop>
+                    <source src="images/mini_pupper_2.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/mini_pupper_2.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('mini_pupper_2').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('mini_pupper_2').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle"><a href="https://www.kickstarter.com/projects/336477435/mini-pupper-2-open-source-ros2-robot-kit-for-dreamers">Mini Pupper 2: Open-Source Quadruped Robot Dog Kit</a></span>
+                  <br>
+                  <a href="www.linkedin.com/in/afreez-gan-b606615">Afreez Gan</a>, 
+                  <b>Lily Wang</b>, 
+                  <b>Jian Song</b>, 
+                  <a href="https://www.linkedin.com/in/marcin-pryli%C5%84ski-a79190249/">Marcin Prylinski</a>, 
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <a href="https://github.com/Ericsii">Yunlong Feng</a>
+                  <p>
+                    Developed all the ROS 2 (Humble) software suite including Locomotion, SLAM, Navigation, and CV functions. 
+                    Deployed Cartographer with an Extended Kalman Filter (EKF) to fuse IMU data and LiDAR odometry, 
+                    enhancing the robostness and accuracy of Mini Pupper's localization system.
+                  </p>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+            
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td>
+                  <h2>Education</h2>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="100%" align="center" border="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="75%" valign="center">
+                  <b>Northwestern University</b></br>
+                  Master of Science, Robotics</br>
+                  <em style="color:grey;">2024-2025</em></br>
+                </td>
+              </tr>
+            <tr>
+                <td width="75%" valign="center">
+                  <b>Beijing University of Chemical Technology</b></br>
+                  Bachelor of Engineering, Mechanical Design, Manufacturing and Its Automation</br>
+                  <em style="color:grey;">2019-2023</em></br>
+                  GPA: 87.4/100, Ranking: 6/72. Ex-president of <a href="https://github.com/mvyp/"> SIE Robotics Club</a>. Guitar player in the Towers (a student band).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:0px">
+                  <br>
+                  <p style="text-align:center;font-size:small;">
+                    June, 2024. </br>
+                    Design and source code from <a href="https://github.com/jonbarron/website">Jon Barron's website</a>.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
