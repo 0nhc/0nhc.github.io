@@ -331,6 +331,41 @@
                 </td>
               </tr>
 
+              <tr onmouseout="mini_pupper()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='mini_pupper'><video  width=100% muted autoplay loop>
+                    <source src="images/mini_pupper.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/mini_pupper.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('mini_pupper').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('mini_pupper').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle"><a href="https://www.kickstarter.com/projects/336477435/mini-pupper-open-sourceros-robot-dog-kit">Mini Pupper: Open-Source Quadruped Robot Dog Kit</a></span>
+                  <br>
+                  <a href="www.linkedin.com/in/afreez-gan-b606615">Afreez Gan</a>, 
+                  <a href="https://www.linkedin.com/in/marcin-pryli%C5%84ski-a79190249/">Marcin Prylinski</a>, 
+                  <a href="https://twitter.com/tomato5356">Xiongshi Xu</a>, 
+                  <a href="index.html">Zhengxiao Han</a>
+                  <p>
+                    Inspired by Stanford's open-source quadruped robot <a href="https://pupper.readthedocs.io/en/latest/">Pupper</a>, I designed my own mechanical hardware, mainly improved its leg structures. 
+                    After that, I was contacted by Mini Pupper's team and joined them. We developed the first product together. 
+                    I independently developed all the ROS software suite including Locomotion, SLAM, Navigation, and CV functions. 
+                    We crowd-funded $500,000 on Kickstarter when I was a junior.
+                  </p>
+                </td>
+              </tr>
             </tbody>
           </table>
             
