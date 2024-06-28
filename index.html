@@ -257,6 +257,44 @@
                 </td>
               </tr>
 
+              <tr onmouseout="multi_robot()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='multi_robot'><video  width=100% muted autoplay loop>
+                    <source src="images/multi_robot.gif" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video></div>
+                    <img src='images/multi_robot.gif' width=100%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('multi_robot').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('multi_robot').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle"><a href="https://www.youtube.com/watch?v=kmLZ6OmiqrY">Cooperative Multi-Robot System</a></span>
+                  <br>
+                  <a href="index.html">Zhengxiao Han</a>, 
+                  <b>Jingtian Deng</b>, 
+                  <a href="https://linden713.github.io/">Chenghao Lin</a>, 
+                  <a href="https://www.linkedin.com/in/tian-ao-ren-2a0349220/">Tianao Ren</a>, 
+                  <a href="https://air.tsinghua.edu.cn/en/info/1046/1196.htm">Guyue Zhou</a>
+                  <p>
+                    Utilized Pure Pursuit algorithm for multi-robot formation control, which was tested in both real world and Isaac Sim. 
+                    Utilized an EKF-based 2D LiDAR localization system as the odometry. 
+                    Utilized KDL for solving kinematic problems of our own 6-DOF robotic arm, 
+                    and combined it with the odometry, achieving Chiken-Head Mode. 
+                    Combined all the functions above, and constructed a multi-robot cooperative system to carry a box in Isaac Sim.
+                  </p>
+                </td>
+              </tr>
+
             </tbody>
           </table>
             
