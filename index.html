@@ -23,18 +23,20 @@
                   <p class="name" style="text-align: center;">
                     Zhengxiao Han
                   </p>
-                  <p>I'm a Visiting Student at 
+                  <p>I am a M.Sc. Student in Robotics at Northwestern Univeristy.
+                  </p>
+                  <p>Previously, I spent a gap year as a Research Assistant at 
                     <a href="https://cfcs.pku.edu.cn/english/">Center on Frontiers of Computing Studies, Peking University</a>, 
                     under the supervision of Prof. <a href="https://zsdonghao.github.io/"> Hao Dong</a>.
                   </p>
-                  <p>I just got accpeted by Northwestern University M.Sc. in Robotics Program.
-                  </p>
+                  
                   <p>
                     I completed my Bachelor's degree in 2023 at <a href="https://english.buct.edu.cn/main.htm">BUCT</a>, 
                     where I used to lead the <a href="https://github.com/mvyp/"> SIE Robotics Club</a>.
                   </p>
                   <p>
-                    I spent two years at <a href="https://github.com/AIR-DISCOVER">DISCOVER Lab, Tsinghua University</a>, 
+                    Before getting the B.Eng., I spent two years at <a href="https://github.com/AIR-DISCOVER">DISCOVER Lab, Tsinghua University</a>
+                    as a Research Intern, 
                     under the supervision of Prof. <a href="https://air.tsinghua.edu.cn/en/info/1046/1196.htm">Guyue Zhou</a>.
                   </p>
                   <p>
@@ -78,73 +80,6 @@
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
-              <tr onmouseout="dex_7dof()" onmouseover="bog_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='dex_7dof' style="opacity: 0;">
-                    </div>
-                    <img src='images/dex_7dof.gif' width=105%>
-                  </div>
-                  <script type="text/javascript">
-                    function bog_start() {
-                      document.getElementById('dex_7dof').style.opacity = "1";
-                    }
-
-                    function bog_stop() {
-                      document.getElementById('dex_7dof').style.opacity = "0";
-                    }
-                    bog_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <span class="papertitle">(Ongoing Project) 7-DOF Humanoid Robotic Arm with Tactile-enabled Dexterous Hand</span>
-                  <br>
-                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
-                  <a href="https://www.linkedin.com/in/jinzhou-l-78001212a/">Jinzhou Li</a>, 
-                  <a href="https://ceca.pku.edu.cn/en/people_/faculty_/tao_wang/">Tao Wang</a>, 
-                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
-                  <p>
-                  Constructed a 7-DOF humanoid robotic arm with dexterous hands equipped with tactile sensors for data collection, 
-                  and interfaced it with ROS Control and MoveIt. All work was done by me independently.
-                  We will work on encoding visual, tactile (not vision-based) and joint signals for imitation learning and deploy learned policies on real robots.
-                  </p>
-                </td>
-              </tr>
-
-              <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                <tbody>
-                  <tr onmouseout="active_perception()" onmouseover="bog_start()">
-                    <td style="padding:20px;width:25%;vertical-align:middle">
-                      <div class="one">
-                        <div class="two" id='active_perception' style="opacity: 0;">
-                        </div>
-                        <img src='images/active_perception.jpg' width=105%>
-                      </div>
-                      <script type="text/javascript">
-                        function bog_start() {
-                          document.getElementById('active_perception').style.opacity = "1";
-                        }
-    
-                        function bog_stop() {
-                          document.getElementById('active_perception').style.opacity = "0";
-                        }
-                        bog_stop()
-                      </script>
-                    </td>
-                    <td style="padding:20px;width:75%;vertical-align:middle">
-                      <span class="papertitle">(Ongoing Project) Next Best View in Occluded Environments</span>
-                      <br>
-                      <a href="index.html"><b>Zhengxiao Han</b></a>*, 
-                      <a href="index.html"><b>Fei Hu</b></a>*, 
-                      <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
-                      <a href="https://zsdonghao.github.io/">Hao Dong</a>
-                      <p>
-                      It's challenging for robots to grasp an object with an occluded view. Thus we need a policy to move the gripper to the next 
-                      pose for better grasping conditions. We propose to generate a synthetic dataset to train a model predicting the next best view 
-                      from the current gripper (eye-on-hand) pose.
-                      </p>
-                    </td>
-                  </tr>
 
               <tr onmouseout="tactile_sensor()" onmouseover="bog_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
@@ -171,6 +106,72 @@
                   <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
                   <a href="https://zsdonghao.github.io/">Hao Dong</a>
                   <p>
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="active_perception()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='active_perception' style="opacity: 0;">
+                    </div>
+                    <img src='images/active_perception.jpg' width=105%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('active_perception').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('active_perception').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle">(Ongoing Project) Next Best View in Occluded Environments</span>
+                  <br>
+                  <a href="index.html"><b>Fei Hu</b></a>*, 
+                  <a href="index.html"><b>Zhengxiao Han</b></a>*, 
+                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+                  <p>
+                  It's challenging for robots to grasp an object with an occluded view. Thus we need a policy to move the gripper to the next 
+                  pose for better grasping conditions. We propose to generate a synthetic dataset to train a model predicting the next best view 
+                  from the current gripper (eye-on-hand) pose.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="dex_7dof()" onmouseover="bog_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='dex_7dof' style="opacity: 0;">
+                    </div>
+                    <img src='images/dex_7dof.gif' width=105%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('dex_7dof').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('dex_7dof').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <span class="papertitle">7-DOF Humanoid Robotic Arm with Tactile-enabled Dexterous Hand</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://www.linkedin.com/in/jinzhou-l-78001212a/">Jinzhou Li</a>, 
+                  <a href="https://ceca.pku.edu.cn/en/people_/faculty_/tao_wang/">Tao Wang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+                  <p>
+                  Constructed a 7-DOF humanoid robotic arm with dexterous hands equipped with tactile sensors for data collection, 
+                  and interfaced it with ROS Control and MoveIt. All work was done by me independently.
+                  We will work on encoding visual, tactile (not vision-based) and joint signals for imitation learning and deploy learned policies on real robots.
                   </p>
                 </td>
               </tr>
@@ -589,7 +590,7 @@
                 <td style="padding:0px">
                   <br>
                   <p style="text-align:center;font-size:small;">
-                    June, 2024. </br>
+                    September, 2024. </br>
                     Design and source code from <a href="https://github.com/jonbarron/website">Jon Barron's website</a>.
                   </p>
                 </td>
