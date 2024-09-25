@@ -146,36 +146,6 @@
                   <div class="one">
                     <div class="two" id='active_perception' style="opacity: 0;">
                     </div>
-                    <img src='images/empty.jpg' width=150%>
-                  </div>
-                  <script type="text/javascript">
-                    function bog_start() {
-                      document.getElementById('active_perception').style.opacity = "1";
-                    }
-
-                    function bog_stop() {
-                      document.getElementById('active_perception').style.opacity = "0";
-                    }
-                    bog_stop()
-                  </script>
-                </td>
-                <td style="padding:80px;width:75%;vertical-align:middle">
-                  <span class="papertitle">(Ongoing Project) Next Best View in Occluded Environments</span>
-                  <br>
-                  <a href="index.html"><b>Fei Hu</b></a>*, 
-                  <a href="index.html"><b>Zhengxiao Han</b></a>*, 
-                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
-                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
-                  <p>
-                  </p>
-                </td>
-              </tr> -->
-
-              <!-- <tr onmouseout="active_perception()" onmouseover="bog_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='active_perception' style="opacity: 0;">
-                    </div>
                     <img src='images/active_perception.jpg' width=150%>
                   </div>
                   <script type="text/javascript">
@@ -262,10 +232,41 @@
                   <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
                   <a href="https://zsdonghao.github.io/">Hao Dong</a>	
                   <p>
-                  Achived hardware design of a 6-DOF robotic arm and a 2-finger adaptive parallel gripper 
-                  (same capability as <a href="https://robotiq.com/products/2f85-140-adaptive-robot-gripper">Robotiq 2f-85 Gripper</a>), 
+                  Achived hardware design of a new 6-DOF robotic arm, 
                   and interfaced all hardware under ROS Control and MoveIt. Interfaced the robotic arm with 
                   <a href="https://graspnet.net/">GraspNet</a> and achived a grasping demo. All work was done by me independently.
+                  </p>
+                </td>
+              </tr>
+
+              <tr onmouseout="full_stack_arm_and_gripper()" onmouseover="bog_start()"></tr>
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='full_stack_arm_and_gripper' style="opacity: 0;">
+                    </div>
+                    <img src='images/full_stack_arm_and_gripper.gif' width=150%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('full_stack_arm_and_gripper').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('full_stack_arm_and_gripper').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:80px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Full-stack 6-DOF robotic arm and gripper development</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>	
+                  <p>
+                  Achived hardware design of a 6-DOF robotic arm and a 2-finger adaptive parallel gripper 
+                  (same capability as <a href="https://robotiq.com/products/2f85-140-adaptive-robot-gripper">Robotiq 2f-85 Gripper</a>).
+                  Constructed a robotic arm SDK with CMake, and interfaced the lib with ROS and Isaac Sim.
                   </p>
                 </td>
               </tr>
