@@ -81,6 +81,42 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
+              <tr onmouseout="msr_hackathon()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='msr_hackathon' style="opacity: 0;">
+                    </div>
+                    <img src='images/msr_hackathon.gif' width=225%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('msr_hackathon').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('msr_hackathon').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:80px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Northwestern University MSR Hackathon</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://robotics.northwestern.edu/people/profiles/faculty/elwin-matt.html">Matthew Elwin</a>
+                  <p>
+                    In this hackathon, we reviewed BFS, DFS and RRT searching algorithms.
+                    Then, we achived a simple grasping dmeo using a PincherX 100 arm and a RealSense D435i.
+                    We used HSV filtering to create a mask for detecting a purple pen, and by leveraging the camera's 
+                    intrinsic matrix and aligned depth image, we calculated the pen's 3D position. 
+                    To handle camera movements, I used an ArUco tag to dynamically calculate the transformation 
+                    between the camera and robotic arm, making my system robust to any accidental camera shifts. 
+                    At last we can generate a 6D grasping pose for the robotic arm. All contents in this GIF are achived by
+                    me independently.
+                  </p>
+                </td>
+              </tr>
+
               <!-- <tr onmouseout="icra2025()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
