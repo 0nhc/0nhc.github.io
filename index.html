@@ -379,20 +379,18 @@
                   </script>
                 </td>
                 <td style="padding:80px;width:75%;vertical-align:middle">
-                  <span class="papertitle">(Ongoing Project) Next Best View in Occluded Environments</span>
+                  <span class="papertitle">(Ongoing Project) Active Perception in Occluded Scenes</span>
                   <br>
                   <a href="index.html"><b>Fei Hu</b></a>*, 
                   <a href="index.html"><b>Zhengxiao Han</b></a>*, 
                   <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
                   <a href="https://zsdonghao.github.io/">Hao Dong</a>
-                  <!-- <p>
-                  It's challenging for robots to grasp an object with an occluded view. Thus we need a policy to move the gripper to the next 
-                  pose for better grasping conditions. We propose to generate a synthetic dataset to train a model predicting the next best view 
-                  from the current gripper (eye-on-hand) pose.
-                  </p> -->
                   <p>
-                    I generated a synthetic dataset to train a model predicting the next best view 
-                    from the current gripper (eye-on-hand) pose.
+                    I generated a synthetic dataset by Utilizing Isaac Sim and <a href="https://omniobject3d.github.io/">OmniObject3d</a>./
+                    By extracting the model's pointcloud, I used RANSAC to fit the planes, then calculate the normal vectors, and finally 
+                    used convex hulls to find areas that can place other objects. With this pipeline, I generated more than 300,000 data
+                    samples including RGB, Depth, and Segmentation information for training a grasping policy in occluded scenes. The whole
+                    data generation process was done by me independently.
                   </p>
                 </td>
               </tr>
