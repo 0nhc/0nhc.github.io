@@ -25,22 +25,20 @@
                   </p>
                   <p>I am a Master Student (<a href="https://www.mccormick.northwestern.edu/robotics/">MSR Program</a>) at Northwestern Univeristy.
                   </p>
-                  <p>Previously, I spent a gap year as a Research Assistant at 
-                    <a href="https://cfcs.pku.edu.cn/english/">Center on Frontiers of Computing Studies, Peking University</a>, 
+                  <p>
+                    I spent a gap year as a Research Assistant at 
+                    <a href="https://zsdonghao.github.io/">PKU-Agibot (智元机器人) Lab, Peking University</a>, 
                     under the supervision of Prof. <a href="https://zsdonghao.github.io/"> Hao Dong</a>.
-                  </p>
-                  
-                  <p>
-                    I completed my Bachelor's degree in 2023 at <a href="https://english.buct.edu.cn/main.htm">BUCT</a>, 
-                    where I used to lead the <a href="https://github.com/mvyp/"> SIE Robotics Club</a>, a student organization
-                    focusing on general-purpose service robots.
-
-                  </p>
-                  <p>
-                    Before getting the B.Eng., I spent two years at <a href="https://github.com/AIR-DISCOVER">DISCOVER Lab, Tsinghua University</a>
+                    Before that, I spent two years at <a href="https://github.com/AIR-DISCOVER">DISCOVER Lab, Tsinghua University</a>
                     as a Research Intern, 
                     under the supervision of Prof. <a href="https://sites.google.com/view/fromandto">Hao Zhao</a> and 
                     Prof. <a href="https://www.innovatorsunder35.com/the-list/guyue-zhou/">Guyue Zhou</a>.
+                    Then 
+                  </p>
+                  <p>
+                    I received my Bachelor's degree in 2023 at <a href="https://english.buct.edu.cn/main.htm">BUCT</a>, 
+                    where I used to lead the <a href="https://github.com/mvyp/"> SIE Robotics Club</a>, a student organization
+                    focusing on general-purpose service robots.
                   </p>
                   <p>
                     Proudly, I am a core contributor to 
@@ -68,11 +66,84 @@
             </tbody>
           </table>
 
+        <!-- Awards -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <tbody>
+            <tr>
+              <td style="padding:20px;width:100%;vertical-align:middle">
+                <h2 class="news-heading">🔥 News</h2>
+                <ul id="newsList">
+                  <li>
+                    <p><span class="news-date">[2024.09]</span> 🎓 I started <a href="https://www.mccormick.northwestern.edu/robotics/">Master in Robotics (MSR)</a> program at Northwestern University.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2023.09]</span> 💼 I started my gap year as a research assistant at <a href="https://zsdonghao.github.io/">PKU-Agibot (智元机器人) Lab</a>, Peking University.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2023.07]</span> 📚 Two papers get accepted to CICAI 2023, with a <b>Best Demo Award.</b></p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2023.07]</span> 📚 One paper gets accepted to ICCV 2023.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2023.06]</span> 🎓 Get my B.Eng. in Mechanical Engineering at Beijing Univeristy of Chemical Technology.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2022.10]</span> 🦾 Improved <a href="https://www.kickstarter.com/projects/mdrobotkits/mini-pupper-2-open-source-ros2-robot-kit-for-dreamers">Mini Pupper 2</a> and launched it on Kickstarter.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2022.06]</span> 📚 Published an <a href="https://aws.amazon.com/blogs/robotics/build-and-simulate-a-mini-pupper-robot-in-the-cloud-without-managing-any-infrastructure/">AWS Robotics Blog</a> in deploying applcation changes from cluod-based simulation to real robot hardware.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2022.05]</span> 🏆 We get a <a href="https://github.com/mvyp/.github/blob/main/profile/imgs/2.jpg">Third Prize</a> in ICRA 2022 RoboMaster University Sim2Real Challenge.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2021.10]</span> 💼 I started my roboitcs journey as an intern at <a href="https://air.tsinghua.edu.cn/en/index.htm">Institute for Al Industry Research (AIR)</a>, Tsinghua University.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2021.09]</span> 🦾 Our open-source quadruped robot <a href="https://www.kickstarter.com/projects/mdrobotkits/mini-pupper-open-sourceros-robot-dog-kit/description">Mini Pupper</a> is launched on Kickstarter, and crowd-funded about $500, 000.</p>
+                  </li>
+                  <li>
+                    <p><span class="news-date">[2021.05]</span> 🏆 We get a <a href="https://github.com/mvyp/.github/blob/main/profile/imgs/4.jpg">Second Prize</a> in RoboCup@Home 2021, China.</p>
+                  </li>
+                </ul>
+                <a href="#" id="expandNews" class="expand-link">Show more</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <script>
+          const newsList = document.getElementById('newsList');
+          const expandLink = document.getElementById('expandNews');
+          const newsItems = newsList.getElementsByTagName('li');
+          const initialDisplay = 5;
+          let isExpanded = false;
+          function toggleNews() {
+            for (let i = initialDisplay; i < newsItems.length; i++) {
+              newsItems[i].classList.toggle('hidden');
+            }
+            isExpanded = !isExpanded;
+            expandLink.textContent = isExpanded ? 'Show less' : 'Show more';
+          }
+          if (newsItems.length > initialDisplay) {
+            for (let i = initialDisplay; i < newsItems.length; i++) {
+              newsItems[i].classList.add('hidden');
+            }
+            expandLink.style.display = 'inline-block';
+          } else {
+            expandLink.style.display = 'none';
+          }
+          expandLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleNews();
+          });
+        </script>
+
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
                 <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>Publications</h2>
+                  <h2>📚 Publications</h2>
                   <p>
                     * : Equal contribution; †: Corresponding author(s)
                   </p>
@@ -321,7 +392,7 @@
             <tbody>
                 <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2>Projects</h2>
+                  <h2>🦾 Projects</h2>
                   <p>
                     I have always been working on Robotics.
                   </p>
@@ -701,8 +772,23 @@
               </tr>
             </tbody>
           </table>
-            
+
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td>
+                  <h2>Miscellaneous</h2>
+                  <p>
+                    <li>
+                    <a href="https://hackaday.com/2021/09/27/robot-dogs-hack-chat/">Hackday Chat</a> on quadruped robots.
+                    </li>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td>
@@ -710,9 +796,9 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
 
-          <table width="100%" align="center" border="0" cellpadding="20">
+          <!-- <table width="100%" align="center" border="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="75%" valign="center">
@@ -730,15 +816,17 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
-                <td style="padding:0px">
+                <td style="padding:0px;width:5%;">
+                  <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=p9qCYK-rJEcF_FBhZsQbjU7RvhXNquQf7q7s7NNyOiA&cl=ffffff&w=a"></script>
+                </td>
+                <td style="padding:0px;text-align:right;font-size:small">
                   <br>
                   <p style="text-align:center;font-size:small;">
-                    September, 2024. </br>
                     Design and source code from <a href="https://github.com/jonbarron/website">Jon Barron's website</a>.
                   </p>
                 </td>

@@ -133,3 +133,91 @@ h2 {
 span.highlight {
   background-color: #ffffd0;
 }
+
+.news {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.news h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.news ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news li {
+  margin-bottom: 15px;
+}
+
+.news p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.news strong {
+  color: #0066cc;
+}
+
+.news a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.news a:hover {
+  text-decoration: underline;
+}
+
+/* news */
+.news-heading {
+  margin-bottom: 20px; /* Maintain normal spacing after the heading */
+}
+
+#newsList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#newsList li {
+  margin-bottom: 0px; /* Reduced spacing between news items */
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, margin 0.3s ease-out;
+  max-height: 50px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+#newsList li:last-child {
+  margin-bottom: 0;
+}
+
+#newsList li p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+#newsList li.hidden {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+.expand-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.expand-link:hover {
+  color: #004080;
+  text-decoration: underline;
+}
