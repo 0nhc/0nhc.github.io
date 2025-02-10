@@ -458,6 +458,52 @@
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
+              <tr onmouseout="pcd_classify()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='pcd_classify' style="opacity: 0;">
+                    </div>
+                    <img src='images/pcd_classify.gif' width=200%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('pcd_classify').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('pcd_classify').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+              <td style="padding:35px;width:75%;vertical-align:middle">
+                <span class="papertitle">Point Cloud Classification</span>
+                <br>
+                <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                <a href="https://wengmister.github.io/">Zhengyang (Kris) Weng</a>,
+                <a href="https://benbenyamin.github.io/">Ben Benyamin</a>,
+                <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/demeter-david.html">David Demeter</a>
+                </br>
+                <strong>
+                  <em>Final Project for <a href="https://www.mccormick.northwestern.edu/artificial-intelligence/curriculum/descriptions/msai-349.html">MSAI349: Machine Learning</a></em>
+                </strong>
+                <br>
+                <a href="https://github.com/msr-in-msai/msai-349-final-project">
+                  <b>
+                    [Code]
+                  </b>
+                </a>
+                <p>
+                  We developed a PyTorch object classification model that processes point cloud data enriched with RGB 
+                  information using a modified PointNet architecture. Our approach leverages a realistic dataset generated 
+                  in Isaac Sim from OmniObject3D object models, capturing RGB-D images and segmentation labels for five classes 
+                  (apple, banana, bottle, bowl, cup). With a four-layer MLP, max pooling, and transformation networks 
+                  addressing order and pose variations, our model achieves 70% testing accuracy and outperforms traditional KNN methods.
+                </p>
+              </td>
+            </tr>
+
+
               <tr onmouseout="doodle_droid()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
@@ -583,7 +629,7 @@
                   </script>
                 </td>
                 <td style="padding:35px;width:75%;vertical-align:middle">
-                  <span class="papertitle">(Ongoing Project) Synthetic Grasping Dataset Generation</span>
+                  <span class="papertitle">Synthetic Grasping Dataset Generation</span>
                   <br>
                   <a href="index.html"><b>Zhengxiao Han</b></a>, 
                   <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
