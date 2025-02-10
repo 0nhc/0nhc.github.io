@@ -496,7 +496,8 @@
                 <p>
                   We developed a PyTorch object classification model that processes point cloud data enriched with RGB 
                   information using a modified PointNet architecture. Our approach leverages a realistic dataset generated 
-                  in Isaac Sim from OmniObject3D object models, capturing RGB-D images and segmentation labels for five classes 
+                  in Isaac Sim from <a href="https://omniobject3d.github.io/">OmniObject3d</a> object models, capturing RGB-D 
+                  images and segmentation labels for five classes 
                   (apple, banana, bottle, bowl, cup). With a four-layer MLP, max pooling, and transformation networks 
                   addressing order and pose variations, our model achieves 70% testing accuracy and outperforms traditional KNN methods.
                 </p>
@@ -549,35 +550,6 @@
                   </p>
                 </td>
               </tr>
-
-              <!-- <tr onmouseout="tactile_sensor()" onmouseover="bog_start()">
-                <td style="padding:20px;width:30%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='tactile_sensor' style="opacity: 0;">
-                    </div>
-                    <img src='images/empty.jpg' width=200%>
-                  </div>
-                  <script type="text/javascript">
-                    function bog_start() {
-                      document.getElementById('tactile_sensor').style.opacity = "1";
-                    }
-
-                    function bog_stop() {
-                      document.getElementById('tactile_sensor').style.opacity = "0";
-                    }
-                    bog_stop()
-                  </script>
-                </td>
-                <td style="padding:35px;width:75%;vertical-align:middle">
-                  <span class="papertitle">(Ongoing Project) Vision-based Tactile Sensor</span>
-                  <br>
-                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
-                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
-                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
-                  <p>
-                  </p>
-                </td>
-              </tr> -->
 
               <tr onmouseout="msr_hackathon()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
@@ -673,6 +645,40 @@
                   Constructed a 7-DOF humanoid robotic arm with dexterous hands equipped with tactile sensors for data collection, 
                   and interfaced it with ROS Control and MoveIt. All work was done by me independently.
                   We will work on encoding visual, tactile (not vision-based) and joint signals for imitation learning and deploy learned policies on real robots.
+                  </p>
+                </td>
+              </tr>
+
+
+              <tr onmouseout="tactile_sensor()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='tactile_sensor' style="opacity: 0;">
+                    </div>
+                    <img src='images/bi_9dtact.gif' width=200%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('tactile_sensor').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('tactile_sensor').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Vision-based Tactile Sensor</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://jiyao06.github.io/">Jiyao Zhang</a>, 
+                  <a href="https://zsdonghao.github.io/">Hao Dong</a>
+                  <p>
+                    Developed a binocular version of <a href="https://linchangyi1.github.io/9DTact/">9DTact</a>, 
+                    a vision-based tactile sensor for robotic grasping. I independently designed all mechanical 
+                    and electrical components—including the 3D-printed housing and custom PCB. Although the design 
+                    showed promise, camera lens issues eventually rendered this version obsolete.
                   </p>
                 </td>
               </tr>
@@ -964,7 +970,7 @@
             </tbody>
           </table> -->
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table style="width:50%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:0px;text-align:right;font-size:small">
