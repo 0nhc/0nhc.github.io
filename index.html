@@ -458,6 +458,63 @@
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
+
+              <tr onmouseout="rds2025_2n()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='rds2025_2n' style="opacity: 0;">
+                    </div>
+                    <img src='images/rds2025_2n.gif' width=200%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('rds2025_2n').style.opacity = "1";
+                    }
+    
+                    function bog_stop() {
+                      document.getElementById('rds2025_2n').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Dexterous Hand Basics: 2N Finger</span>
+                  <br>
+                  <a href="https://www.linkedin.com/in/klaudon/">Konrad Laudon</a>, 
+                  <a href="https://www.linkedin.com/in/eliana-storkamp-7771ab22a/">Eliana Storkamp</a>, 
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://www.linkedin.com/in/cwseif/">Charlie Seifert</a>, 
+                  <a href="https://www.linkedin.com/in/sairam-umakanth/">Sairam Umakanth</a>, 
+                  <a href="https://www.linkedin.com/in/yifei-chen-a89498310/">Yifei Chen</a>,
+                  <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/lynch-kevin.html">Kevin Lynch</a>
+                  </br>
+                  <strong>
+                    <em>Warm-up Project for <a href="https://www.mccormick.northwestern.edu/mechanical/academics/courses/descriptions/472-1-robot-design-studio.html">ME472: Robot Design Studio</a></em>
+                  </strong>
+                  <br>
+                  <a href="https://github.com/NU-RDS/2n-codebase">
+                    <b>
+                      [Code]
+                    </b>
+                  </a>
+                  <a href="https://absrat.com/rds2025_team2n">
+                    <b>
+                      [Documentation]
+                    </b>
+                  </a>
+                  <p>
+                    This warm-up project for Robot Design Studio explores the concept of a dexterous 2N finger. 
+                    Built with a 3D-printed structure, tendon-driven actuation, and ODrive Pro-controlled brushless motors, 
+                    it uses custom CAN and serial protocols for smooth communication between the Teensy, ODrive, and laptop. 
+                    We verified the kinematics by displaying joint states in the GUI and Rviz, integrated a ROS 2 interface 
+                    for future expansion, and demonstrated PD control.
+                  </p>
+                  <p>
+                    One more thing, we over-toasted one ODrive Pro (1*$229), two Teensy 4.1 boards(2*$31.5), and four MCP2561 chips(4*$1.28)!
+                  </p>
+                </td>
+              </tr>
+
               <tr onmouseout="pcd_classify()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
@@ -524,7 +581,7 @@
                   </script>
                 </td>
                 <td style="padding:35px;width:75%;vertical-align:middle">
-                  <span class="papertitle">Doodle Droid</span>
+                  <span class="papertitle">Doodle Droid <b style="color: #FF0000;">(Reposted by Franka Robotics)</b></span>
                   <br>
                   <a href="https://ykechriotis.github.io/">Yanni Kechriotis</a>, 
                   <a href="https://cappuccinopanda.github.io/website/">David Matthews</a>, 
@@ -540,6 +597,11 @@
                   <a href="https://github.com/HarrisonBounds/DoodleDroid">
                     <b>
                       [Code]
+                    </b>
+                  </a>
+                  <a href="https://www.linkedin.com/posts/harrison-bounds_introducing-doodle-droid-a-portrait-drawing-activity-7293646260731883520-NiNA?utm_source=share&utm_medium=member_desktop&rcm=ACoAADc8j2YBWU41NvujlwJ5927HA9-7dKcrazM">
+                    <b>
+                      [LinkedIn Post]
                     </b>
                   </a>
                   <p>
