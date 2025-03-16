@@ -32,7 +32,7 @@
                     advised by Prof. <a href="https://zsdonghao.github.io/"> Hao Dong</a>.
                   </p>
                   <p>
-                    I spent two years as a Research Intern at <a href="https://air.tsinghua.edu.cn/en/">DISCOVER Lab</a> at Tsinghua University, 
+                    I spent two years as a Research Intern at <a href="https://air.tsinghua.edu.cn/en/">DISCOVER Lab</a>, Tsinghua University, 
                     advised by <a href="https://x.com/arx_zhang?lang=en">Xinliang Zhang</a>, Prof. <a href="https://sites.google.com/view/fromandto">Hao Zhao</a> and 
                     Prof. <a href="https://www.innovatorsunder35.com/the-list/guyue-zhou/">Guyue Zhou</a>. During this time, I collaborated closely with 
                     <a href="https://arx-x.com/">ARX (方舟无限)</a> and <a href="https://airbots.online/">DISCOVER Robotics (求之科技)</a> during their formative stages, 
@@ -277,7 +277,7 @@
                   <p>
                     We developed an intelligent desktop operating robot designed to assist 
                     humans in their daily lives by comprehending natural language with large 
-                    language models and performing a variety of desktop-related tasks.
+                    language models (LLM) and performing a variety of desktop-related tasks.
                   </p>
                 </td>
               </tr>
@@ -484,12 +484,58 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
+              <tr onmouseout="northwestern_humanoid()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='northwestern_humanoid' style="opacity: 0;">
+                    </div>
+                    <!-- <img src='images/northwestern_humanoid.gif' width=200%/> -->
+                    <video width="320" height="180" autoplay loop muted>
+                      <source src="videos/northwestern_humanoid.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('northwestern_humanoid').style.opacity = "1";
+                    }
+    
+                    function bog_stop() {
+                      document.getElementById('northwestern_humanoid').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">(Ongoing) Northwestern Humanoid</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>
+                  </br>
+                  <strong>
+                    <em>ME499: Independent Project</em>
+                  </strong>
+                  <br>
+                  <a href="https://github.com/0nhc/opus_rl">
+                    <b>
+                      [Code]
+                    </b>
+                  </a>
+                  <a href="https://docs.google.com/presentation/d/1MNszr2vIThjyHmdqRFD0j22BspOMXgXHbe75w9jpFPk/edit?usp=sharing">
+                    <b>
+                      [Slides]
+                    </b>
+                  </a>
+                  <p>
+                    Full-stack development for a humanoid robot, with RL-based locomotion policy. Project is still ongoing.
+                  </p>
+                </td>
+              </tr>
+
               <tr onmouseout="rds2025_2n()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
                     <div class="two" id='rds2025_2n' style="opacity: 0;">
                     </div>
-                    <img src='images/rds2025_2n.gif' width=200%>
+                    <img src='images/rds2025_2n.gif' width=200%/>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
