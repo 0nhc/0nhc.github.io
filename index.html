@@ -484,6 +484,102 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
+              <tr onmouseout="wbcd()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='wbcd' style="opacity: 0;">
+                    </div>
+                    <video width="320" height="180" autoplay loop muted>
+                      <source src="videos/wbcd.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('wbcd').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('wbcd').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">ICRA 2025 What Bimanuals Can Do (WBCD) Challenge</span>
+                  <br>
+                  <a href="https://ericlee0224.github.io/">Weize Li</a>,
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://davidlxu.github.io/">Lixin Xu</a>, 
+                  <a href="https://changerc77.github.io/">Xiangyu Chen</a>, 
+                  <a href="https://harrisonbounds.github.io/">Harrison Bounds</a>, 
+                  <a href="index.html">Chenrui Zhang</a>, 
+                  <a href="https://scholar.google.com/citations?user=RYKMFp4AAAAJ&hl=en">Yifan Xu</a>, 
+                  </br>
+                  <strong>
+                    <em>ICRA, 2025</em>
+                    🏆
+                    <em style="color: #FF0000;">The First Place</em>
+                  </strong>
+                  <br>
+                  <a href="https://wbcd.live">
+                    <b>
+                      [Website]
+                    </b>
+                  </a>
+                  <p>
+                    Our team won <b style="color: #FF0000;">The First Place</b> in the Table Operations track of 
+                    the ICRA 2025 WBCD Challenge - a hackathon organized by Google DeepMind, the Robotics and AI Institute (RAI), 
+                    and other leading partners. This competition benchmarks real-world bimanual tasks across three 
+                    tracks—packing logistics, scientific experiments, and table operations—pushing robotics from lab 
+                    demos to billion-dollar market potential.
+                    In the Table Operations track, we tackled a series of demanding tasks under strict 
+                    requirements for speed, precision, and reliability: unfolding a tablecloth (Deformable-object manipulation), 
+                    placing a pizza onto the table (Pick-and-place), and opening and closing a food storage box.
+                    As the top winners, we're honored to receive a $50 K ARX X7x robot to further our research.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- <tr onmouseout="pose_estimation()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='pose_estimation' style="opacity: 0;">
+                    </div>
+                    <img src='images/pose_estimation.gif' width=200%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('pose_estimation').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('pose_estimation').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Point Cloud Classification</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://wengmister.github.io/">Zhengyang (Kris) Weng</a>,
+                  <a href="https://benbenyamin.github.io/">Ben Benyamin</a>
+                  </br>
+                  <strong>
+                    <em>Final Project for <a href="https://www.mccormick.northwestern.edu/artificial-intelligence/curriculum/descriptions/msai-437.html">MSAI437: Deep Learning</a></em>
+                  </strong>
+                  <br>
+                  <a href="https://github.com/msr-in-msai/msai-349-final-project">
+                    <b>
+                      [Code]
+                    </b>
+                  </a>
+                  <p>
+                    We re-implemented a 6D pose estimation pipeline (<a href="https://github.com/j96w/DenseFusion">DenseFusion</a>)
+                  </p>
+                </td>
+              </tr> -->
+
               <tr onmouseout="northwestern_humanoid()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
@@ -616,33 +712,32 @@
                     bog_stop()
                   </script>
                 </td>
-              <td style="padding:35px;width:75%;vertical-align:middle">
-                <span class="papertitle">Point Cloud Classification</span>
-                <br>
-                <a href="index.html"><b>Zhengxiao Han</b></a>, 
-                <a href="https://wengmister.github.io/">Zhengyang (Kris) Weng</a>,
-                <a href="https://benbenyamin.github.io/">Ben Benyamin</a>,
-                <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/demeter-david.html">David Demeter</a>
-                </br>
-                <strong>
-                  <em>Final Project for <a href="https://www.mccormick.northwestern.edu/artificial-intelligence/curriculum/descriptions/msai-349.html">MSAI349: Machine Learning</a></em>
-                </strong>
-                <br>
-                <a href="https://github.com/msr-in-msai/msai-349-final-project">
-                  <b>
-                    [Code]
-                  </b>
-                </a>
-                <p>
-                  We developed a PyTorch object classification model that processes point cloud data enriched with RGB 
-                  information using a modified PointNet architecture. Our approach leverages a realistic dataset generated 
-                  in Isaac Sim from <a href="https://omniobject3d.github.io/">OmniObject3d</a> object models, capturing RGB-D 
-                  images and segmentation labels for five classes 
-                  (apple, banana, bottle, bowl, cup). With a four-layer MLP, max pooling, and transformation networks 
-                  addressing order and pose variations, our model achieves 70% testing accuracy and outperforms traditional KNN methods.
-                </p>
-              </td>
-            </tr>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Point Cloud Classification</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://wengmister.github.io/">Zhengyang (Kris) Weng</a>,
+                  <a href="https://benbenyamin.github.io/">Ben Benyamin</a>
+                  </br>
+                  <strong>
+                    <em>Final Project for <a href="https://www.mccormick.northwestern.edu/artificial-intelligence/curriculum/descriptions/msai-349.html">MSAI349: Machine Learning</a></em>
+                  </strong>
+                  <br>
+                  <a href="https://github.com/msr-in-msai/msai-349-final-project">
+                    <b>
+                      [Code]
+                    </b>
+                  </a>
+                  <p>
+                    We developed a PyTorch object classification model that processes point cloud data enriched with RGB 
+                    information using a modified PointNet architecture. Our approach leverages a realistic dataset generated 
+                    in Isaac Sim from <a href="https://omniobject3d.github.io/">OmniObject3d</a> object models, capturing RGB-D 
+                    images and segmentation labels for five classes 
+                    (apple, banana, bottle, bowl, cup). With a four-layer MLP, max pooling, and transformation networks 
+                    addressing order and pose variations, our model achieves 70% testing accuracy and outperforms traditional KNN methods.
+                  </p>
+                </td>
+              </tr>
 
 
               <tr onmouseout="doodle_droid()" onmouseover="bog_start()">
