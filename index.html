@@ -578,6 +578,53 @@
                 </td>
               </tr> -->
 
+              <tr onmouseout="hand()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='hand' style="opacity: 0;">
+                    </div>
+                    <img src='images/hand.png' width=200%/>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('hand').style.opacity = "1";
+                    }
+    
+                    function bog_stop() {
+                      document.getElementById('hand').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Dexterous Hand: HAN(D)</span>
+                  <br>
+                  <a href="https://github.com/NU-RDS"><b>Robot Design Studio</b></a>
+                  </br>
+                  <strong>
+                    <em>ME472: Robot Design Studio</em>
+                  </strong>
+                  <br>
+                  <a href="https://github.com/NU-RDS/rds25-project">
+                    <b>
+                      [Documentation]
+                    </b>
+                  </a>
+                  <a href="https://github.com/NU-RDS/rds25-palm-board">
+                    <b>
+                      [One of my PCB Designs]
+                    </b>
+                  </a>
+                  <p>
+                    I took Robot Design Studio (ME472) at Northwestern University, where I worked with a team of five to design and build a tendon-driven dexterous hand, HAN(D).
+                    My role centered on electrical design and control, including motor, sensor, and controller selection, CAN transceiver integration, and custom PCB design.
+                    I also developed the ROS 2 control node, enabling precise motion control and real-time feedback.
+                    The project name, HAN(D), happened to be inspired by my last name, though I was not the team leader or primary contributor.
+                    I'm grateful to everyone in the course for making the project possible.
+                  </p>
+                </td>
+              </tr>
+
               <tr onmouseout="northwestern_humanoid()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
