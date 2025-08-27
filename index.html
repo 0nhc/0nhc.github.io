@@ -23,8 +23,8 @@
                   <p class="name" style="text-align: center;">
                     Zhengxiao Han
                   </p>
-                  <p>I am an <a href="https://www.mccormick.northwestern.edu/robotics/">MSR</a> student at Northwestern Univeristy. 
-                    I received my Bachelor's degree in 2023 at <a href="https://english.buct.edu.cn/main.htm">Beijing University of Chemical Technology</a>.
+                  <p>
+                    I am an MS in Robotics student at Northwestern University.
                   </p>
                   <p>
                     I spent one year as a Research Assistant at 
@@ -37,6 +37,7 @@
                     Prof. <a href="https://www.innovatorsunder35.com/the-list/guyue-zhou/">Guyue Zhou</a>. During this time, I collaborated closely with 
                     <a href="https://arx-x.com/">ARX (方舟无限)</a> and <a href="https://airbots.online/">DISCOVER Robotics (求之科技)</a> during their formative stages, 
                     prior to their official founding.
+                    Notably, the robotic arm prototype I contributed to, known as the ARX, has now been widely used by Stanford University and Physical Intelligence.
                   </p>
                   <p>
                     Proudly, I am a founding contributor to 
@@ -74,6 +75,9 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <h2 class="news-heading">🔥 News</h2>
                 <ul id="newsList">
+                  <li>
+                    <p><span class="news-date">[2025.05]</span> 🏆 We took home the championship in the ICRA 2025 WBCD Challenge!</p>
+                  </li>
                   <li>
                     <p><span class="news-date">[2025.01]</span> 🎉 One paper gets accepted to ICRA 2025.</p>
                   </li>
@@ -186,6 +190,49 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
+              <tr onmouseout="wbcd2025()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='wbcd2025' style="opacity: 0;">
+                    </div>
+                    <img src='images/wbcd_final.svg' width=200%>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('wbcd2025').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('wbcd2025').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">Taming VR Teleoperation and Learning from Demonstration for Multi-Task Bimanual Table Service Manipulation</span>
+                  <br>
+                  <a href="https://ericlee0224.github.io/">Weize Li</a>,
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://davidlxu.github.io/">Lixin Xu</a>, 
+                  <a href="https://changerc77.github.io/">Xiangyu Chen</a>, 
+                  <a href="https://harrisonbounds.github.io/">Harrison Bounds</a>, 
+                  <a href="index.html">Chenrui Zhang</a>, 
+                  <a href="https://scholar.google.com/citations?user=RYKMFp4AAAAJ&hl=en">Yifan Xu</a>, 
+                </br>
+                  <strong>
+                    <em>arXiv:2508.14542</em>
+                  </strong>
+                  <br>
+                  <a href="https://arxiv.org/abs/2508.14542">
+                    <b>
+                      [Paper]
+                    </b>
+                  </a>
+                  <p>
+                    This report presents the champion solution of the ICRA 2025 WBCD Table Service Track. The team addressed tasks such as tablecloth unfolding, pizza placement, and container manipulation under strict speed and precision requirements. Their approach combined VR-based teleoperation for robustness and LfD with an ACT-based policy for autonomous pizza placement. By aligning task design with scoring rules and technical strengths, the solution achieved both efficiency and reliability, earning first place in the competition.
+                </td>
+              </tr>
+
               <tr onmouseout="icra2025()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
@@ -227,6 +274,11 @@
                       [Website]
                     </b>
                   </a>
+                  <p>
+                    We propose a training-free method for marker-free, online hand-eye calibration. 
+                    By leveraging pre-trained visual features to align CAD models with images via PnP, 
+                    and refining poses with temporal keyframe optimization, FEEPE achieves accurate 6D estimation across robots and end-effectors without retraining.
+                  </p>
                 </td>
               </tr>
 
@@ -484,6 +536,61 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
+              <tr onmouseout="msr_final_project()" onmouseover="bog_start()">
+                <td style="padding:20px;width:30%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='msr_final_project' style="opacity: 0;">
+                    </div>
+                    <img src='images/msr_final_project.png' width=200%/>
+                  </div>
+                  <script type="text/javascript">
+                    function bog_start() {
+                      document.getElementById('msr_final_project').style.opacity = "1";
+                    }
+
+                    function bog_stop() {
+                      document.getElementById('msr_final_project').style.opacity = "0";
+                    }
+                    bog_stop()
+                  </script>
+                </td>
+                <td style="padding:35px;width:75%;vertical-align:middle">
+                  <span class="papertitle">(Ongoing) General Manipulation via VLM and Video Prediction Model</span>
+                  <br>
+                  <a href="index.html"><b>Zhengxiao Han</b></a>, 
+                  <a href="https://www.chenwangjeremy.net/">Chen Wang</a>, 
+                  <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/elwin-matthew.html">Matthew Elwin</a>, 
+                  <a href="https://limanling.github.io/">Manling Li</a>
+                  </br>
+                  <strong>
+                    <em>ME499: Final Project</em>
+                  </strong>
+                  <br>
+                  <a href="https://docs.google.com/document/d/1ADUtjzocQVh7pzSNSIwuC9RD2jipoXPr7JSsXeqnUCs/edit?usp=sharing">
+                    <b>
+                      [Technical Report]
+                    </b>
+                  </a>
+                  <a href="https://docs.google.com/presentation/d/1uHiSzfCz5wXXCLMvmDJMuOnXqrtU0GMF2s68SoQ6-f0/edit?usp=sharing">
+                    <b>
+                      [Slides]
+                    </b>
+                  </a>
+                  <a href="https://github.com/mvyp/vlm_grasping">
+                    <b>
+                      [Code]
+                    </b>
+                  </a>
+                  <p>
+                    My final project is an open-vocabulary robotic grasping system that integrates a vision-language model, SAM, and GSNet into a unified pipeline. 
+                    It detects objects and functional parts (e.g., handles, spouts), generates 6-DoF grasp candidates from point clouds, and filters them with semantic masks to 
+                    retain only meaningful grasps. Qualitative experiments on a Franka Panda show the system reliably predicts functional grasp poses, despite 
+                    SDK constraints preventing execution. Looking forward, I plan to extend this framework by combining video generation models with pose estimation, 
+                    enabling closed-loop execution of complex manipulation actions beyond grasping.
+                  </p>
+                </td>
+              </tr>
+
               <tr onmouseout="wbcd()" onmouseover="bog_start()">
                 <td style="padding:20px;width:30%;vertical-align:middle">
                   <div class="one">
@@ -513,17 +620,22 @@
                   <a href="https://changerc77.github.io/">Xiangyu Chen</a>, 
                   <a href="https://harrisonbounds.github.io/">Harrison Bounds</a>, 
                   <a href="index.html">Chenrui Zhang</a>, 
-                  <a href="https://scholar.google.com/citations?user=RYKMFp4AAAAJ&hl=en">Yifan Xu</a>, 
+                  <a href="https://scholar.google.com/citations?user=RYKMFp4AAAAJ&hl=en">Yifan Xu</a>
                   </br>
                   <strong>
                     <em>ICRA, 2025</em>
                     🏆
-                    <em style="color: #FF0000;">The First Place</em>
+                    <em style="color: #FF0000;">Champion Team</em>
                   </strong>
                   <br>
+                  <a href="https://arxiv.org/abs/2508.14542">
+                    <b>
+                      [Technical Report]
+                    </b>
+                  </a>
                   <a href="https://wbcd.live">
                     <b>
-                      [Website]
+                      [Challenge Website]
                     </b>
                   </a>
                   <p>
@@ -599,7 +711,7 @@
                 <td style="padding:35px;width:75%;vertical-align:middle">
                   <span class="papertitle">Dexterous Hand: HAN(D)</span>
                   <br>
-                  <a href="https://github.com/NU-RDS"><b>Robot Design Studio</b></a>
+                  <a href="https://github.com/NU-RDS"><b>Everyone in Robot Design Studio</b></a>
                   </br>
                   <strong>
                     <em>ME472: Robot Design Studio</em>
