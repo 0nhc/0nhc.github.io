@@ -540,7 +540,7 @@
                   <div class="one">
                     <div class="two" id='msr_final_project' style="opacity: 0;">
                     </div>
-                    <img src='images/msr_final_project.png' width=200%/>
+                    <img src='images/msr_final_project.gif' width=200%/>
                   </div>
                   <script type="text/javascript">
                     function bog_start() {
@@ -554,10 +554,9 @@
                   </script>
                 </td>
                 <td style="padding:35px;width:75%;vertical-align:middle">
-                  <span class="papertitle">(Ongoing) General Manipulation via VLM and Video Prediction Model</span>
+                  <span class="papertitle">Open-vocabulary Manipulation System with Video Prediction Models and One-shot Pose Estimation</span>
                   <br>
                   <a href="index.html"><b>Zhengxiao Han</b></a>, 
-                  <!-- <a href="https://www.chenwangjeremy.net/">Chen Wang</a>,  -->
                   <a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/elwin-matthew.html">Matthew Elwin</a>, 
                   <a href="https://limanling.github.io/">Manling Li</a>
                   </br>
@@ -565,27 +564,23 @@
                     <em>ME499: Final Project</em>
                   </strong>
                   <br>
-                  <a href="https://docs.google.com/document/d/1ADUtjzocQVh7pzSNSIwuC9RD2jipoXPr7JSsXeqnUCs/edit?usp=sharing">
+                  <a href="msr_final_project/msr_final_project.html">
                     <b>
                       [Technical Report]
                     </b>
                   </a>
-                  <a href="https://docs.google.com/presentation/d/1uHiSzfCz5wXXCLMvmDJMuOnXqrtU0GMF2s68SoQ6-f0/edit?usp=sharing">
+                  <a href="https://docs.google.com/presentation/d/11NZ2PBEIkET-4iwu6fOPlDTMbBAqHwgk-boUw3yxHJ8/edit?usp=sharing">
                     <b>
                       [Slides]
                     </b>
                   </a>
-                  <a href="https://github.com/mvyp/vlm_grasping">
+                  <a href="msr_final_project/msr_final_project.html">
                     <b>
                       [Code]
                     </b>
                   </a>
                   <p>
-                    My final project is an open-vocabulary robotic grasping system that integrates a vision-language model, SAM, and GSNet into a unified pipeline. 
-                    It detects objects and functional parts (e.g., handles, spouts), generates 6-DoF grasp candidates from point clouds, and filters them with semantic masks to 
-                    retain only meaningful grasps. Qualitative experiments on a Franka Panda show the system reliably predicts functional grasp poses, despite 
-                    SDK constraints preventing execution. Looking forward, I plan to extend this framework by combining video generation models with pose estimation, 
-                    enabling closed-loop execution of complex manipulation actions beyond grasping.
+                    My final project at Northwestern Univeristy builds an end-to-end system for real-world robotic manipulation that turns natural language goals into reliable grasps on unseen objects, augmented by video generation to predict manipulation outcomes. Given a text instruction (e.g., “put the mustard bottle on the book”), the system identifies the target in RGB-D observations, segments it with Gemini 2.5 and SAM 2, reconstructs a localized 3D representation with SAM 3D and Any6D, and generates 6-DoF grasp candidates with GraspGen. In parallel, it leverages modern video generation models (Google Veo 3) to synthesize prediction videos that support planning and verification, before selecting and executing a grasp on a real robot arm robustly under partial views, clutter, and imperfect depth.
                   </p>
                 </td>
               </tr>

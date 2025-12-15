@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YC1EZJV3X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-9YC1EZJV3X');
+  </script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Final Project - Zhengxiao Han</title>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9YC1EZJV3X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-9YC1EZJV3X');
+  </script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Final Project - Zhengxiao Han</title>
+
+  <meta name="author" content="Harrison Bounds">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"> 
+
+  <style>
+    /* Specific styles for the project page, maintaining the look */
+    .project-title {
+      font-size: 30px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .project-author {
+      font-size: 16px;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .section-content {
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    /* Styles for side-by-side images (Task Creation) */
+    .gif-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .gif-item {
+        max-width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gif-item img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gif-item p {
+        font-size: 12px; 
+        margin-top: 10px; 
+        color: #666;
+        text-align: center;
+    }
+    
+    /* NEW: Styles for side-by-side diagrams (Results and Deployment) */
+    .dual-image-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        /* Ensure the container is centered in the table cell */
+        width: 100%;
+    }
+
+    .dual-image-item {
+        width: 48%; /* Each takes slightly less than half the space */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dual-image-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .dual-image-item p {
+        font-size: 12px;
+        margin-top: 10px;
+        color: #666;
+        text-align: center;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <table
+    style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2.5%;width:100%;vertical-align:middle">
+                  <p class="project-title">
+                    Open-vocabulary Manipulation System with Video Prediction Models and One-shot Pose Estimation
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          
+            <div style="display:flex; justify-content:center;">
+            <div style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+                <img src="summary.gif" style="width:70%; display:block;" />
+                <p style="margin-top:8px;">
+                Real World Deployment with RGB-D Video Generation
+                </p>
+            </div>
+            </div>
+
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>Overview</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:top" class="section-content">
+                  <p>
+                    My final project builds an end-to-end system for real-world robotic manipulation that turns natural language goals into reliable grasps on unseen objects. Given a text instruction (e.g., “put the mustard bottle on the plate”), the system identifies the target in RGB-D observations, segments it with SAM 2, reconstructs a localized 3D representation with SAM 3D and Any6D, and generates 6-DoF grasp candidates with GraspGen. It then selects and executes a grasp on a real robot arm, with robustness to partial views, clutter, and imperfect depth. The result is a modular pipeline that connects modern foundation models for language and vision with classical geometry and motion execution, enabling open-vocabulary “say what you want, grab what you mean” manipulation in the real world.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>Video Predictions</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:top" class="section-content">
+                  <p>
+                  I evaluate how well state-of-the-art video generation models can predict manipulation outcomes from visual context. I benchmark OpenAI Sora2, Google Veo3, and Kling 2.5 across several representative manipulation tasks, using the same prompts and task setups to enable a fair qualitative comparison. Below, I present the generated videos produced by each model for each task.
+                  
+                  Overall, the results indicate clear differences in physical plausibility and task consistency: both Veo3 and Kling 2.5 consistently produce strong performance, generating videos that better preserve object identity, maintain coherent contacts, and reflect more realistic action-conditioned changes across the manipulation sequences.
+                  </p>
+                  <div class="vid-row">
+                    <video src="video_1.mp4" muted autoplay loop playsinline style="width:24.5%"></video>
+                    <video src="video_3.mp4" muted autoplay loop playsinline style="width:24.5%"></video>
+                    <video src="video_4.mp4" muted autoplay loop playsinline style="width:24.5%"></video>
+                    <video src="video_5.mp4" muted autoplay loop playsinline style="width:24.5%"></video>
+                 </div>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>Depth Video Estimation and Alignment</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 16px; width: 100%; vertical-align: top;" class="section-content">
+                <p>
+                    In the Depth Video Estimation section, I evaluate how well learned depth video models can support real-world manipulation by calibrating their predicted depth sequences against a physical sensor reference. Concretely, I perform affine alignment between the predicted depth video and the first RGB-D frame from a RealSense camera (used as ground-truth scale and offset reference). I find that estimating a single set of affine parameters over the entire image is unreliable, but the alignment becomes effective when the parameters are fitted only within the manipulated object’s mask region. This suggests that depth predictions are substantially more stable in object-centric regions, likely reflecting the object-centric bias of many foundation vision datasets and training paradigms.
+                    I also compare VGGT and RollingDepth for video depth estimation. In practice, VGGT is harder to use as a video component due to weaker temporal behavior, while RollingDepth works well for video because it is explicitly designed for sequential inputs and produces stronger temporal consistency across frames.
+                </p>
+            </td>
+            </tbody>
+          </table>
+
+        <div class="vid-row">
+            <video src="mustard_video.mp4" muted autoplay loop playsinline style="width:49%"></video>
+            <video src="rollingdepth.mp4" muted autoplay loop playsinline style="width:49%"></video>
+        </div>
+
+          
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>One-shot Pose Estimation</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:top" class="section-content">
+                  <p>
+                    In the One-shot Pose Estimation section, I build a single-image-to-6D pipeline by using SAM 3D as the image-to-mesh backbone and integrating it into Any6D for pose recovery in metric space. Specifically, I use SAM 3D to reconstruct a high-quality object mesh from a single RGB observation, then “hack” Any6D’s alignment stage to recover meter-scale geometry by anchoring the reconstruction to a given RGB-D reference frame (the anchor image provides the metric depth needed for scale). Any6D’s original image-to-3D module is based on InstantMesh + SAM2 for generating a normalized object shape from the anchor view, so I replace that InstantMesh backbone with SAM 3D.
+                    
+                    I previously experimented with other single-image reconstruction systems (e.g., TripoSR), but in practice these approaches tend to degrade when the object is partially visible or heavily occluded. In contrast, SAM 3D is explicitly positioned to perform well in natural scenes with occlusion and clutter, which makes it a better fit for manipulation scenarios where only a partial view is available.
+                    
+                    After swapping Any6D’s InstantMesh backbone with SAM 3D, the overall system produces stronger one-shot reconstructions and more reliable downstream pose alignment in real-world settings.
+                  </p>
+
+            <figure class="dual-figure">
+                <img src="any6d_real_world_mustard.gif" alt="" style="width:49%">
+                <img src="any6d_real_world_train.gif" alt="" style="width:49%">
+            </figure>
+
+            </tbody>
+          </table>
+
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>Grasping Poses Generation and Filtering</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:top" class="section-content">
+                  <p>
+                    In this module, I use GraspGen to generate diverse 6-DoF grasp candidates directly from the observed scene point cloud, leveraging its diffusion-based grasp synthesis (with scoring/ranking to prioritize high-quality grasps). 
+                    To ensure the robot grasps functional regions (e.g., the handle of a knife rather than the blade), I combine Gemini 2.5 for language-driven functional-part identification and SAM 2 for promptable segmentation to produce a mask for the desired graspable part. 
+                    Finally, I back-project each 6D grasp pose into the camera image and keep only grasps whose projected grasp point (and/or contact region) lies inside the functional-part mask, yielding task-relevant grasps that are both geometrically feasible and semantically appropriate.
+                  </p>
+
+            <figure class="dual-figure">
+                <img src="hammer.png" alt="" style="width:49%">
+                <img src="screwdriver.png" alt="" style="width:49%">
+            </figure>
+
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:middle">
+                  <h2>Infrastructure</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:16px;width:100%;vertical-align:top" class="section-content">
+                  <p>
+                    For infrastructure, I run multiple foundation models on a shared server using conda/mamba environments to isolate dependencies (CUDA builds, Python versions, and conflicting libraries) while keeping installs reproducible and easy to switch between. 
+                    Model services are exposed through a lightweight Flask-based API, and my local machine communicates with the server via custom Flask request/response protocols for inference, batching, and returning artifacts. 
+                    As part of the final project, I also release a set of easy-to-use “foundation model server” repositories that package common models behind consistent endpoints so they can be plugged into the pipeline with minimal setup.
+                  </p>                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+<div class="repo-section">
+  <div id="repoGrid" class="repo-grid"></div>
+</div>
+
+<script>
+  // TODO: replace with your real repos
+  const REPOS = [
+    { name: "FoundationPose", url: "https://github.com/0nhc/FoundationPose", desc: "[CVPR 2024 Highlight] FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects." },
+    { name: "RollingDepth", url: "https://github.com/0nhc/RollingDepth", desc: "[CVPR 2025] RollingDepth: Video Depth without Video Models" },
+    { name: "Any6D", url: "https://github.com/0nhc/Any6D", desc: "[CVPR 2025] Any6D: Model-free 6D Pose Estimation of Novel Objects" },
+    { name: "SAM-3D Objects", url: "https://github.com/0nhc/sam-3d-objects", desc: "SAM 3D Objects from Meta" },
+    { name: "SAMURAI", url: "https://github.com/0nhc/samurai", desc: "SAMURAI: Adapting Segment Anything Model for Zero-Shot Visual Tracking with Motion-Aware Memory" },
+    { name: "GraspGen", url: "https://github.com/0nhc/GraspGen", desc: "GraspGen: A Diffusion-based Framework for 6-DOF Grasping" },
+  ];
+
+  const grid = document.getElementById("repoGrid");
+  grid.innerHTML = REPOS.map(r => `
+    <a class="repo-card" href="${r.url}" target="_blank" rel="noopener noreferrer">
+      <div class="repo-name">${r.name}</div>
+      <div class="repo-url">${r.url.replace("https://", "")}</div>
+      <div class="repo-desc">${r.desc || ""}</div>
+    </a>
+  `).join("");
+</script>
+
+<style>
+  .repo-section { width: 100%; }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .repo-card {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .repo-card:hover { border-color: rgba(0,0,0,0.28); }
+  .repo-name { font-weight: 700; }
+  .repo-url { opacity: 0.7; font-size: 0.9em; margin-top: 2px; }
+  .repo-desc { margin-top: 8px; line-height: 1.35; }
+  @media (max-width: 900px) {
+    .repo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:0px">
+                  <br>
+                  <p style="text-align:center;font-size:middle;">
+                  Zhengxiao Han, 2025
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+</html>
