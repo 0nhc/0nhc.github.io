@@ -160,6 +160,39 @@ SOFTWARE.
   .article-title span {display:inline-block;}
   .article-copy {font-size:15px;line-height:1.9;color:var(--muted);max-width:740px;margin:0;}
   .article-copy strong {color:var(--ink);font-weight:500;}
+  .model-overview {margin:25px 0 0;border:1px solid var(--line);border-radius:14px;background:#fffefb;overflow:hidden;}
+  .model-flow {position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr);gap:14px 52px;padding:25px 25px 60px;}
+  .model-connectors {position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
+  .model-card {position:relative;z-index:1;min-width:0;padding:16px;background:#fffefb;border:1px solid #ccd6c8;border-radius:9px;}
+  .model-card-label {display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .model-card-label strong {font-size:15px;font-weight:500;color:var(--ink);}
+  .model-card-label span {font-size:11px;color:var(--muted);}
+  .model-card p {font-size:14px;line-height:1.7;margin:9px 0 0;color:var(--ink);}
+  .model-card small {display:block;font-size:11px;line-height:1.8;margin-top:6px;color:var(--muted);}
+  .model-card-state {grid-column:1;grid-row:1;}
+  .model-card-input {grid-column:1;grid-row:2;border-color:#d7bda7;}
+  .model-card-input .model-card-label strong {color:#a45e47;}
+  .model-card-physics {grid-column:2;grid-row:1/3;align-self:center;background:#edf3e9;border-color:#9bb39c;padding-top:24px;padding-bottom:24px;}
+  .model-card-future {grid-column:3;grid-row:1/3;align-self:center;border-style:dashed;border-color:#9bb39c;}
+  .model-overview figcaption {margin:0 22px;padding:13px 0 16px;border-top:1px solid var(--line);font-size:13px;line-height:1.9;color:var(--muted);}
+  .model-overview figcaption strong {font-weight:500;color:var(--ink);}
+  .model-analogy {margin:14px 0 27px;font-size:12px;line-height:1.9;color:var(--muted);}
+  .model-analogy a {color:var(--green);text-underline-offset:3px;}
+  .model-workings-title {font-size:18px;font-weight:500;margin:27px 0 10px;}
+  @media(max-width:640px) {
+    .model-flow {grid-template-columns:repeat(2,minmax(0,1fr));gap:37px 13px;padding:20px 18px 24px 28px;}
+    .model-card {padding:12px;}
+    .model-card-label {gap:3px;flex-direction:column;}
+    .model-card-label strong {font-size:14px;}
+    .model-card-label span {font-size:10px;}
+    .model-card p {font-size:13px;margin-top:7px;}
+    .model-card small {font-size:10px;}
+    .model-card-input {grid-column:2;grid-row:1;}
+    .model-card-physics {grid-column:1/-1;grid-row:2;padding:15px;}
+    .model-card-future {grid-column:1/-1;grid-row:3;}
+    .model-card-physics .model-card-label,.model-card-future .model-card-label {flex-direction:row;gap:8px;}
+    .model-overview figcaption {margin:0 14px;font-size:12px;}
+  }
   .coast-demo {margin:22px 0 6px;border:1px solid var(--line);border-radius:12px;background:#fffefb;overflow:hidden;}
   .coast-top {display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px 0;}
   .coast-stages {display:flex;gap:17px;color:var(--muted);font-size:12px;}
@@ -547,16 +580,29 @@ SOFTWARE.
       <p class="sr-only" id="pid-accessible-status" aria-live="polite"></p>
     </section>
 
-    <div class="bridge">
-  <span class="bridge-line" aria-hidden="true"></span>
-  <p><strong>如果要让小车更快、更准、更稳地到达目标位置，还能怎么办？</strong><br>一个思路是：先预测动作的结果，再决定怎样控制。</p>
-</div>
+        <div class="bridge">
+      <span class="bridge-line" aria-hidden="true"></span>
+      <p>如果要让小车更快、更准、更稳地到达目标位置，还能怎么办？</p>
+    </div>
 </section>
 
 <section id="model" class="article-section">
-  <div class="eyebrow"><span class="chapter">02</span><span>从运动到模型</span></div>
-  <h2 class="article-title">先预测动作的结果。</h2>
-  <p class="article-copy">先看一个具体场景：小车经过起点时，正以 <span class="math-inline" data-tex="2.4\,\mathrm{m/s}"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.4</mn><mtext> </mtext><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">s</mi></mrow></mrow><annotation encoding="application/x-tex">2.4\,\mathrm{m/s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2.4</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">m/s</span></span></span></span></span></span> 向上坡行驶。就在这一刻松开油门，它会继续走多远，又会在什么时候滑回来？</p>
+  <div class="eyebrow"><span class="chapter">02</span><span>动画背后的模型</span></div>
+  <h2 class="article-title">刚才 PID 的动画是怎么生成的？</h2>
+  <p class="article-copy">每一小步里，<strong>PID 决定施加多大推力，模型算出小车接下来怎样运动。</strong>把算出的新位置画出来，就有了下一帧。</p>
+  <figure class="model-overview" aria-labelledby="model-overview-caption">
+    <div id="model-flow" class="model-flow">
+      <svg class="model-connectors" aria-hidden="true"></svg>
+      <div id="model-flow-state" class="model-card model-card-state"><div class="model-card-label"><strong>当前状态</strong><span>State</span></div><p>位置 <span class="math-inline" data-tex="p"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span>、速度 <span class="math-inline" data-tex="v"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">v</span></span></span></span></span></p></div>
+      <div id="model-flow-input" class="model-card model-card-input"><div class="model-card-label"><strong>输入</strong><span>Input</span></div><p>施加的推力 <span class="math-inline" data-tex="F"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span></span></span></span></span></p><small>由 P / PI / PID 决定</small></div>
+      <div id="model-flow-physics" class="model-card model-card-physics"><div class="model-card-label"><strong>模型</strong><span>Model</span></div><p>用牛顿定律描述运动</p><small>已知参数：质量、坡度、阻力等</small></div>
+      <div id="model-flow-future" class="model-card model-card-future"><div class="model-card-label"><strong>未来状态</strong><span>Next state</span></div><p>新位置、新速度</p><small>过一小段时间后的结果</small></div>
+    </div>
+    <figcaption id="model-overview-caption"><strong>把新状态作为下一步的当前状态，再算一次。</strong>重复这个过程，小车的整段运动就被算出来了。</figcaption>
+  </figure>
+  <p class="model-analogy">这里用牛顿定律构建物理模型。<a href="https://worldmodels.github.io/" target="_blank" rel="noopener noreferrer">World Model</a> 也可以预测状态如何变化，其中的规律可以从数据中学习。</p>
+  <h3 class="model-workings-title">这个模型具体怎么算？</h3>
+  <p class="article-copy">先把输入变简单：小车经过起点时，正以 <span class="math-inline" data-tex="2.4\,\mathrm{m/s}"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.4</mn><mtext> </mtext><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">s</mi></mrow></mrow><annotation encoding="application/x-tex">2.4\,\mathrm{m/s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2.4</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathrm">m/s</span></span></span></span></span></span> 向上坡行驶。就在这一刻松开油门，驱动力 <span class="math-inline" data-tex="F=0"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">F=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span>。它会继续走多远，又会在什么时候滑回来？</p>
   <div class="coast-demo" aria-label="松开油门后，小车上坡减速、到达最高点，再向下回滑">
     <div class="coast-top">
       <div class="coast-stages" aria-label="当前运动阶段"><span data-coast-stage="up" aria-current="step">上坡减速</span><span data-coast-stage="peak">到达最高点</span><span data-coast-stage="down">向下回滑</span></div>
@@ -972,6 +1018,45 @@ function makeCartPlanner(options={}) {
   function vector(g,x,y,value,text,paint){const sign=value<0?-1:1,len=clip(Math.abs(value)*28,12,91),from=x-sign*len/2,to=x+sign*len/2;g.append(node('path',{d:`M ${from} ${y} L ${to} ${y} M ${to-sign*6} ${y-5} L ${to} ${y} L ${to-sign*6} ${y+5}`,fill:'none',stroke:paint,'stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round'}));label(g,x,y-12,text,{'text-anchor':'middle',fill:paint,'font-size':11});}
   function vehicle(svg,x,y,angle,p,scale,iconScale=1){const g=node('g',{transform:`translate(${x} ${y}) rotate(${angle})`}),body=node('g',{transform:`scale(${iconScale})`});g.append(body);body.append(node('line',{x1:-27,y1:-9,x2:27,y2:-9,stroke:'#243c33','stroke-width':3}));body.append(node('rect',{x:-32,y:-37,width:64,height:26,rx:4,fill:'#d7e7dc',stroke:'#335e4d','stroke-width':1.6}));body.append(node('path',{d:'M-21 -37 V-49 H13 V-37',fill:'#eef2e8',stroke:'#8ba18d','stroke-width':1.3}));for(const cx of[-21,21]){body.append(node('circle',{cx,cy:-8,r:8,fill:'#314b3e'}));const spoke=node('line',{x1:cx-4,y1:-8,x2:cx+4,y2:-8,stroke:'#eef2e8','stroke-width':1.2,transform:`rotate(${p*scale/8*180/Math.PI} ${cx} -8)`});body.append(spoke);}svg.append(g);return g;}
   function ground(svg,domain){const box=svg.getBoundingClientRect(),w=box.width,h=box.height;if(w<1)return null;svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();const left=62,right=w-62,scale=(right-left)/(domain.hi-domain.lo),X=p=>left+(p-domain.lo)*scale,slope=.8/Math.sqrt(9.81**2-.8**2),base=h-77+(right-left)*slope/2,Y=x=>base-(x-left)*slope,angle=-Math.atan(slope)*180/Math.PI;const path=`M 20 ${Y(20)} L ${w-20} ${Y(w-20)}`;svg.append(node('path',{d:path+` L ${w-20} ${h-40} L 20 ${h-40} Z`,fill:'#f0f3eb'}));svg.append(node('path',{d:path,fill:'none',stroke:'#7b8c7d','stroke-width':1.8}));if(svg.id==='pulse-scene'||svg.classList.contains('control-scene')){for(const p of[-8,-4,0,4,8]){const x=X(p);if(x>30&&x<w-30){svg.append(node('line',{x1:x,y1:Y(x)+2,x2:x,y2:Y(x)+8,stroke:'#b1bdac','stroke-width':1}));label(svg,x,h-9,`${p} m`,{'text-anchor':'middle','font-size':10});}}}const origin=X(0);if(origin>25&&origin<w-25){svg.append(node('line',{x1:origin,y1:Y(origin)+2,x2:origin,y2:Y(origin)+10,stroke:'#90a38d','stroke-width':1}));if(svg.id!=='pulse-scene'&&!svg.classList.contains('control-scene'))label(svg,origin,Y(origin)+27,'0 m',{'text-anchor':'middle','font-size':11});}return{w,h,X,Y,angle,scale};}
+    function initModelFlow(){
+    const flow=id('model-flow'),svg=flow.querySelector('svg');
+    const paint={state:'#819882',input:'#b7805d',return:'#9cae99'};
+    function draw(){
+      const bounds=flow.getBoundingClientRect();if(bounds.width<1)return;
+      const box=name=>{const r=id(`model-flow-${name}`).getBoundingClientRect();return{left:r.left-bounds.left,right:r.right-bounds.left,top:r.top-bounds.top,bottom:r.bottom-bounds.top,cx:(r.left+r.right)/2-bounds.left,cy:(r.top+r.bottom)/2-bounds.top};};
+      const state=box('state'),input=box('input'),model=box('physics'),future=box('future');
+      svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);svg.replaceChildren();
+      const defs=node('defs');
+      for(const [name,color] of Object.entries(paint)){
+        const marker=node('marker',{id:`model-flow-arrow-${name}`,viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:5,markerHeight:5,orient:'auto'});
+        marker.append(node('path',{d:'M 0 0 L 10 5 L 0 10 Z',fill:color}));defs.append(marker);
+      }
+      svg.append(defs);
+      const arrow=(path,name='state')=>svg.append(node('path',{d:path,fill:'none',stroke:paint[name],'stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round','marker-end':`url(#model-flow-arrow-${name})`}));
+      const stacked=model.top>state.bottom;
+      if(stacked){
+        const joinY=(Math.max(state.bottom,input.bottom)+model.top)/2;
+        arrow(`M ${state.cx} ${state.bottom+3} V ${joinY} H ${model.cx-18} V ${model.top-6}`);
+        arrow(`M ${input.cx} ${input.bottom+3} V ${joinY} H ${model.cx+18} V ${model.top-6}`,'input');
+        arrow(`M ${model.cx} ${model.bottom+3} V ${future.top-6}`);
+        arrow(`M ${future.left-3} ${future.cy} H 10 V ${state.cy} H ${state.left-6}`,'return');
+      }else{
+        const gap=(state.right+model.left)/2;
+        arrow(`M ${state.right+3} ${state.cy} H ${gap} V ${model.cy-22} H ${model.left-6}`);
+        arrow(`M ${input.right+3} ${input.cy} H ${gap} V ${model.cy+22} H ${model.left-6}`,'input');
+        const mid=(model.right+future.left)/2;
+        arrow(`M ${model.right+3} ${model.cy} H ${mid} V ${future.cy} H ${future.left-6}`);
+        const returnY=bounds.height-23;
+        arrow(`M ${future.cx} ${future.bottom+3} V ${returnY} H 10 V ${state.cy} H ${state.left-6}`,'return');
+        label(svg,bounds.width/2,returnY-9,'继续算下一步',{'text-anchor':'middle','font-size':11,fill:'#81917f'});
+      }
+      flow.dataset.layout=stacked?'vertical':'horizontal';
+    }
+    const observer=new ResizeObserver(draw);observer.observe(flow);
+    for(const card of flow.querySelectorAll('.model-card'))observer.observe(card);
+    draw();
+  }
+
     const coastModel=createPulseModel({mass:1,position:0,velocity:2.4,drive:0,pulse:0});
   const coastPeak=coastModel.turns.find(state=>state.kind==='maximum');
   let coastLo=coastPeak.t,coastHi=10;
@@ -1256,7 +1341,7 @@ function makeCartPlanner(options={}) {
   new ResizeObserver(()=>{render();}).observe(scene);new ResizeObserver(()=>{buildPlots();updatePlots();}).observe(id('position-plot'));new ResizeObserver(()=>{buildPlots();updatePlots();}).observe(id('velocity-plot'));
   document.addEventListener('visibilitychange',()=>{last=null;});reduced.addEventListener('change',event=>{if(event.matches){running=false;sync();}});
   function frame(timestamp){if(running&&!document.hidden){if(last!==null)t=Math.min(HORIZON,t+(timestamp-last)/1000);last=timestamp;render();if(t>=HORIZON){running=false;sync();id('pulse-status').textContent='十秒预测播放完毕。可以拖动时间或修改驱动，再试一次。';}}else last=null;requestAnimationFrame(frame);}
-  buildEditor();prepare();initCoast();initControlDemos();requestAnimationFrame(frame);
+  initModelFlow();buildEditor();prepare();initCoast();initControlDemos();requestAnimationFrame(frame);
 })();
 </script>
 </main><script>
