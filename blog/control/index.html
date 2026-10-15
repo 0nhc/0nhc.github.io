@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>从反馈到预测：小车怎样决定下一步</title><!-- KaTeX 0.19.0: The MIT License (MIT)
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>为什么机器人需要 RL 运控？</title><!-- KaTeX 0.19.0: The MIT License (MIT)
 
 Copyright (c) 2013-2020 Khan Academy and other contributors
 
@@ -578,7 +578,26 @@ SOFTWARE.
   .complexity-close p {font-size:14px;line-height:1.95;color:var(--muted);margin:0;}
   .complexity-close p+p {margin-top:12px;}
   .complexity-close strong {font-weight:500;color:var(--ink);}
+  #imagination .article-copy + .article-copy {margin-top:15px;}
+  #imagination a {color:var(--green);text-underline-offset:3px;}
+  .imagination-subtitle {margin:35px 0 14px;font-size:22px;font-weight:500;color:var(--ink);}
+  .engine-pipeline ol {grid-template-columns:1.1fr 1.15fr 1fr 1fr;}
+  .engine-pipeline .pipeline-added {background:#edf3e9;border-color:#a6b69c;}
+  .learned-world-route {display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:16px;margin:24px 0 0;padding:23px;border:1px solid var(--line);border-radius:10px;background:#fffefb;}
+  .learned-world-route>div {display:flex;flex-direction:column;gap:8px;min-width:0;}
+  .learned-world-route small {font-size:10px;color:var(--muted);}
+  .learned-world-route strong {font-size:16px;font-weight:500;color:var(--ink);}
+  .learned-world-route span {font-size:11px;line-height:1.8;color:var(--muted);}
+  .learned-world-route>i {font-style:normal;color:#a393b1;font-size:19px;}
+  .learned-route-model {padding:15px;background:#f1eef6;border:1px solid #c4b9d0;border-radius:7px;}
+  .learned-route-model strong {color:#6f6082;}
+  .learned-world-route figcaption {grid-column:1/-1;margin-top:3px;font-size:11px;color:var(--muted);line-height:1.8;}
   @media(max-width:700px) {
+    .engine-pipeline ol {grid-template-columns:1fr;}
+    .learned-world-route {grid-template-columns:1fr;gap:10px;padding:20px;}
+    .learned-world-route>i {justify-self:center;transform:rotate(90deg);}
+    .learned-world-route>div {text-align:center;align-items:center;}
+    .learned-world-route figcaption {margin-top:9px;}
     .estimation-examples {grid-template-columns:1fr;}
     .estimation-examples article {display:grid;grid-template-columns:100px 1fr;gap:0 18px;padding:20px;}
     .estimation-examples article+article {border-left:0;border-top:1px solid var(--line);}
@@ -642,10 +661,10 @@ SOFTWARE.
     .control-cycle {gap:7px 11px;font-size:12px;}
   }
 
-</style>
+.blog-header {margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--line);}.blog-header h1 {margin-bottom:10px;}.blog-header p {margin:0;color:var(--muted);font-size:14px;line-height:1.9;}@media(max-width:600px){.blog-header {margin-bottom:28px;padding-bottom:23px;}.blog-header p {font-size:13px;}}</style>
 <meta name="author" content="Zhengxiao Han">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="用斜坡上的一辆小车，交互式理解 P、PI、PID、动力学模型、Optimization 和 MPC。">
+<meta name="description" content="从 PID 和 MPC 出发，用交互动画理解机器人运控，探索通向强化学习的思路。">
 <link rel="icon" href="/images/favicon/favicon.ico">
 <link rel="canonical" href="https://absrat.com/blog/control/">
 <style>
@@ -654,10 +673,10 @@ SOFTWARE.
   .blog-nav a:hover {text-decoration:underline;text-underline-offset:4px;}
   @media(max-width:600px) {.blog-nav {margin-bottom:24px;font-size:11px;}}
 </style>
-</head><body><main><nav class="blog-nav" aria-label="文章导航"><a href="/">← 个人主页</a><span>Zhengxiao Han · Control</span></nav><section id="pid-part">
+</head><body><main><nav class="blog-nav" aria-label="文章导航"><a href="/">← 个人主页</a><span>Zhengxiao Han · Control</span></nav><header class="blog-header"><h1>为什么机器人需要 RL 运控？</h1><p>从一辆小车，到机器人的全身控制。</p></header><section id="pid-part">
     <header>
       <div class="eyebrow"><span class="chapter">01</span><span>先从一个简单的控制问题开始</span></div>
-      <h1><span>怎样让小车，</span><span>停在指定位置？</span></h1>
+      <h2 class="article-title"><span>怎样让小车，</span><span>停在指定位置？</span></h2>
       <p class="lead">斜坡让它往回滑，惯性让它冲过头。<br><strong>先只用 P：差得越远，就推得越大。</strong></p>
     </header>
 
@@ -1032,7 +1051,7 @@ SOFTWARE.
       </svg>
       <h3>重新称重</h3><p>经标定的称重传感器或悬架载荷信号，给出新的质量估计。</p>
       <span class="estimate-output math-render" data-tex="\hat m_t"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>m</mi><mo>^</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\hat m_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">m</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
-      <a class="story-source" href="https://www.air-weigh.com/suspension-scales-vs-load-cells-which-is-the-smart-choice-for-your-fleet/" target="_blank" rel="noopener noreferrer">车载称重示例 ↗</a>
+      <a class="story-source" href="https://www.air-weigh.com/suspension-scales-vs-load-cells-which-is-the-smart-choice-for-your-fleet/" target="_self" rel="noopener noreferrer">车载称重示例 ↗</a>
     </article>
     <article>
       <svg viewBox="0 0 240 105" role="img" aria-label="对照模型预测与实测运动，用施加的驱动力和传感器读数辨识阻力">
@@ -1045,7 +1064,7 @@ SOFTWARE.
       </svg>
       <h3>对照运动反应</h3><p>结合驱动力、里程计 / IMU，以及质量、坡度信息，在线辨识阻力。</p>
       <span class="estimate-output math-render" data-tex="\hat b_t"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>b</mi><mo>^</mo></mover><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\hat b_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.1079em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">b</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>
-      <a class="story-source" href="https://its.berkeley.edu/publications/parameter-estimation-and-command-modification-longitudinal-control-heavy-vehicles" target="_blank" rel="noopener noreferrer">车辆参数辨识（2003）↗</a>
+      <a class="story-source" href="https://its.berkeley.edu/publications/parameter-estimation-and-command-modification-longitudinal-control-heavy-vehicles" target="_self" rel="noopener noreferrer">车辆参数辨识（2003）↗</a>
     </article>
     <article>
       <svg viewBox="0 0 240 105" role="img" aria-label="激光雷达结合车体姿态，重建前方起伏路面的形状">
@@ -1058,7 +1077,7 @@ SOFTWARE.
       </svg>
       <h3>重新看路</h3><p>激光雷达配合车体位姿估计，重建路面形状，得到随位置变化的坡度。</p>
       <span class="estimate-output math-render" data-tex="\hat\theta_t(p)"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>θ</mi><mo>^</mo></mover><mi>t</mi></msub><mo stretchy="false">(</mo><mi>p</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat\theta_t(p)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1.2079em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mclose">)</span></span></span></span></span>
-      <a class="story-source" href="https://github.com/ANYbotics/elevation_mapping" target="_blank" rel="noopener noreferrer">地形重建示例 ↗</a>
+      <a class="story-source" href="https://github.com/ANYbotics/elevation_mapping" target="_self" rel="noopener noreferrer">地形重建示例 ↗</a>
     </article>
   </div>
   <p class="control-copy">不过，车加速慢，可能是阻力更大，也可能是车更重、坡更陡。这些估计要放在一起考虑。</p>
@@ -1088,6 +1107,10 @@ SOFTWARE.
     <figcaption><span>液压 Atlas 抛掷约 7.8 kg 的工具包 · Boston Dynamics，2023</span><a href="https://www.youtube.com/watch?v=-e1_QhJ1EhQ" target="_blank" rel="noopener noreferrer">完整官方视频 ↗</a></figcaption>
   </figure>
   <p class="control-copy">Boston Dynamics 在 <a href="https://bostondynamics.com/blog/picking-up-momentum/" target="_blank" rel="noopener noreferrer">《Picking Up Momentum》</a> 中介绍了这次扩展：把重物显式加入模型，让优化器一起考虑机器人与重物的运动，以及两者之间的力。</p>
+  <figure id="atlas-plank-demo" class="robot-video">
+    <div class="robot-video-frame"><video id="atlas-plank-video" controls muted loop playsinline preload="none" poster="assets/media/atlas-plank-prediction.jpg" aria-label="Boston Dynamics 官方视频：Atlas 搬运约 7.5 千克木板，左上角显示木板未来轨迹的预测"><source src="assets/media/atlas-plank-prediction.mp4" type="video/mp4">你的浏览器不支持视频播放，可以<a href="assets/media/atlas-plank-prediction.mp4">直接打开视频</a>。</video></div>
+    <figcaption><span>Atlas 搬运约 7.5 kg 木板 · 左上角彩色框显示木板的预测轨迹</span><a href="https://bostondynamics.com/blog/picking-up-momentum/" target="_self" rel="noopener noreferrer">Boston Dynamics 原文 ↗</a></figcaption>
+  </figure>
   <div id="atlas-model-comparison" class="atlas-model-comparison" aria-label="Boston Dynamics 前后两版 MPC 预测模型的扩展">
     <div><small>早期跑酷、舞蹈的 MPC</small><strong>简化的整体动力学模型</strong><p>用整体质心与惯性描述机器人，规划落脚位置和对地发力。</p></div>
     <div><small>这次搬运、抛掷的 MPC</small><strong>全身与重物的联合模型</strong><p>将各关节运动、各连杆动量，以及重物和相互作用力，纳入同一次预测与优化。</p></div>
@@ -1108,6 +1131,36 @@ SOFTWARE.
     <p class="story-source">这是帮助理解结构的通用写法，并非 Boston Dynamics 公布的具体优化公式。</p>
   </section>
   <div class="complexity-close"><p>从小车到 Atlas，在线要做的事越来越多：看路、估状态、辨识参数、更新模型，再把动作优化出来。</p><p>已有的模型和估计器可以复用。但换成陌生的重物、铰链、形变或滑动，系统可能又要补进新的状态和接触关系。<strong>我们很难事先列完开放世界的情况，再为它们备好可靠的模型与估计方法。</strong></p></div>
+</section>
+
+<section id="imagination" class="article-section story-section">
+  <div class="eyebrow"><span class="chapter">11</span><span>把世界装进模型</span></div>
+  <h2 class="article-title">幻想时间。</h2>
+  <p class="article-copy">把脑洞再开大一点。除了机器人和重物，再把地面、门轴、绳子，以及它们之间的碰撞、摩擦，都加进模型呢？</p>
+  <p class="article-copy">沿着这条路走下去，模型就越来越像一个<strong>能推演周围世界的物理引擎</strong>。MPC 每次规划，都先在这个“小世界”里试不同的动作。</p>
+
+  <h3 class="imagination-subtitle">这已经有人做了。</h3>
+  <p class="control-copy"><a href="https://github.com/google-deepmind/mujoco_mpc" target="_blank" rel="noopener noreferrer">MuJoCo MPC</a> 直接用 MuJoCo 物理引擎预测运动，再在线优化动作。我们前面写的几行小车方程，在这里换成了物理引擎和场景模型。</p>
+  <figure class="estimation-pipeline engine-pipeline" aria-labelledby="engine-pipeline-caption">
+    <ol><li><small>输入</small><strong>当前状态＋候选动作</strong><span>这段动作会怎样？</span></li><li class="pipeline-added"><small>模型</small><strong>MuJoCo＋场景模型</strong><span>机器人、重物、地面与接触</span></li><li><small>预测</small><strong>未来的运动</strong><span>位置、姿态、速度怎样变</span></li><li><small>优化</small><strong>比较、修改动作</strong><span>用任务评分挑选方案</span></li></ol>
+    <figcaption id="engine-pipeline-caption">换一段动作，再让引擎预测。选好后执行一小段，再根据最新状态重新规划。</figcaption>
+  </figure>
+  <figure id="mjpc-rubik-demo" class="robot-video">
+    <div class="robot-video-frame"><video id="mjpc-rubik-video" controls muted loop playsinline preload="none" poster="assets/media/mjpc-rubik.jpg" aria-label="MuJoCo MPC 官方魔方操作仿真演示，720p 完整视频"><source src="assets/media/mjpc-rubik.mp4" type="video/mp4">你的浏览器不支持视频播放，可以<a href="assets/media/mjpc-rubik.mp4">直接打开视频</a>。</video></div>
+    <figcaption><span>MuJoCo MPC · 魔方操作仿真 · 720p 完整视频</span><a href="https://www.youtube.com/watch?v=ZRRvVWV-Muk" target="_self" rel="noopener noreferrer">视频原始出处 ↗</a></figcaption>
+  </figure>
+  <p class="control-note">物理引擎提供计算规则；场景里的形状、质量和摩擦，仍需要我们给它。视频为仿真演示。<a href="https://arxiv.org/abs/2212.00541" target="_blank" rel="noopener noreferrer">MuJoCo MPC 论文（2022）↗</a></p>
+
+  <h3 id="learned-world-control" class="imagination-subtitle">模型，也可以学出来。</h3>
+  <p class="control-copy">还记得开头的学习型 World Model 吗？用交互数据学一个预测模型，替换刚才的物理方程或物理引擎。<strong>评分规则和 MPC 的在线优化可以保留下来。</strong></p>
+  <p class="control-copy"><a href="https://proceedings.neurips.cc/paper/2018/hash/3de568f8597b94bda53149c7d7f5958c-Abstract.html" target="_self" rel="noopener noreferrer">PETS（2018）</a> 就是一个经典例子：用一组概率神经网络学习动力学，预测不同动作的结果和不确定性，再由 MPC 在线挑选动作。</p>
+  <figure class="learned-world-route" aria-labelledby="learned-world-route-caption">
+    <div><small>输入</small><strong>当前状态＋候选动作</strong><span>做这段动作会怎样？</span></div><i aria-hidden="true">→</i><div class="learned-route-model"><small>模型</small><strong>学得的动力学模型</strong><span>从交互数据中学到变化规律</span></div><i aria-hidden="true">→</i><div><small>预测与评价</small><strong>未来轨迹＋方案评分</strong><span>按设定的任务目标比较结果</span></div>
+    <figcaption id="learned-world-route-caption">比较多段动作，执行选中方案的第一步。读到新观测后，再重新规划。</figcaption>
+  </figure>
+  <p class="control-copy">如果输入是图像，<a href="https://planetrl.github.io/" target="_self" rel="noopener noreferrer">PlaNet（2019）</a> 会先学习内部状态，再在其中用 MPC 预测奖励、规划动作，不训练策略网络或价值网络。</p>
+  <p class="control-note">PETS 和 PlaNet 也常被归为 model-based RL，因为它们通过交互数据学习并改善控制；这两个例子的动作仍由 MPC 在线计算。</p>
+  <p class="model-takeaway"><strong>模型换成了从数据中学到的规律，预测、优化、执行一小段、再重新规划的过程保留了下来。</strong></p>
 </section>
 
 
@@ -1885,7 +1938,8 @@ function createModelMismatch(plannerFactory,options={}){
   }
 
     function initResearchMedia(){
-    const video=id('atlas-object-video');video.muted=true;
+    for(const video of [id('atlas-object-video'),id('atlas-plank-video'),id('mjpc-rubik-video')].filter(Boolean)){
+    video.muted=true;
     let visible=false,manuallyPaused=false,autoPausePending=false;
     function stop(){if(!video.paused){autoPausePending=true;video.pause();}}
     function update(){
@@ -1894,8 +1948,9 @@ function createModelMismatch(plannerFactory,options={}){
     }
     video.addEventListener('pause',()=>{if(autoPausePending)autoPausePending=false;else manuallyPaused=true;});
     video.addEventListener('play',()=>{manuallyPaused=false;});
-    new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;update();},{threshold:.15}).observe(video);
+    new IntersectionObserver(entries=>{visible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.15;update();},{threshold:.15}).observe(video);
     document.addEventListener('visibilitychange',update);reduced.addEventListener('change',update);
+    }
   }
 
   function domain(){return WORLD_DOMAIN;}
