@@ -161,6 +161,9 @@ SOFTWARE.
   .article-copy {font-size:15px;line-height:1.9;color:var(--muted);max-width:740px;margin:0;}
   .article-copy strong {color:var(--ink);font-weight:500;}
   .model-overview {margin:25px 0 0;border:1px solid var(--line);border-radius:14px;background:#fffefb;overflow:hidden;}
+  .model-overview-heading {display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:18px 25px 0;}
+  .model-overview-heading strong {font-size:14px;font-weight:500;color:var(--ink);}
+  .model-overview-heading span {font-size:11px;color:var(--muted);}
   .model-flow {position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr);gap:14px 52px;padding:25px 25px 60px;}
   .model-connectors {position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
   .model-card {position:relative;z-index:1;min-width:0;padding:16px;background:#fffefb;border:1px solid #ccd6c8;border-radius:9px;}
@@ -176,6 +179,10 @@ SOFTWARE.
   .model-card-future {grid-column:3;grid-row:1/3;align-self:center;border-style:dashed;border-color:#9bb39c;}
   .model-overview figcaption {margin:0 22px;padding:13px 0 16px;border-top:1px solid var(--line);font-size:13px;line-height:1.9;color:var(--muted);}
   .model-overview figcaption strong {font-weight:500;color:var(--ink);}
+  .world-model-overview {margin-top:16px;}
+  .world-model-overview .model-card-physics {background:#f1eef6;border-color:#b3a4c6;}
+  .world-model-overview .model-card-future {border-color:#b3a4c6;}
+  .world-model-overview .model-overview-heading strong {color:#6f6082;}
   .model-analogy {margin:14px 0 27px;font-size:12px;line-height:1.9;color:var(--muted);}
   .model-analogy a {color:var(--green);text-underline-offset:3px;}
   .model-workings-title {font-size:18px;font-weight:500;margin:27px 0 10px;}
@@ -192,6 +199,7 @@ SOFTWARE.
     .model-card-future {grid-column:1/-1;grid-row:3;}
     .model-card-physics .model-card-label,.model-card-future .model-card-label {flex-direction:row;gap:8px;}
     .model-overview figcaption {margin:0 14px;font-size:12px;}
+    .model-overview-heading {padding:16px 18px 0;gap:5px 10px;}
   }
   .model-row {display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);}
   .model-row h3 {font-size:16px;font-weight:500;margin:0 0 9px;}
@@ -618,6 +626,7 @@ SOFTWARE.
   <h2 class="article-title">刚才 PID 的动画是怎么生成的？</h2>
   <p class="article-copy">每一小步里，<strong>PID 决定施加多大推力，模型算出小车接下来怎样运动。</strong>把算出的新位置画出来，就有了下一帧。</p>
   <figure class="model-overview" aria-labelledby="model-overview-caption">
+    <div class="model-overview-heading"><strong>小车的物理模型</strong><span>用物理定律写出变化规律</span></div>
     <div id="model-flow" class="model-flow">
       <svg class="model-connectors" aria-hidden="true"></svg>
       <div id="model-flow-state" class="model-card model-card-state"><div class="model-card-label"><strong>当前状态</strong><span>State</span></div><p>位置 <span class="math-inline" data-tex="p"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span></span>、速度 <span class="math-inline" data-tex="v"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">v</span></span></span></span></span></p></div>
@@ -627,9 +636,20 @@ SOFTWARE.
     </div>
     <figcaption id="model-overview-caption"><strong>把新状态作为下一步的当前状态，再算一次。</strong>重复这个过程，小车的整段运动就被算出来了。</figcaption>
   </figure>
-  <p class="model-analogy">这里用牛顿定律构建物理模型。<a href="https://worldmodels.github.io/" target="_blank" rel="noopener noreferrer">World Model</a> 也可以预测状态如何变化，其中的规律可以从数据中学习。</p>
-  <h3 class="model-workings-title">这个模型具体怎么算？</h3>
-  <p class="article-copy">沿坡向上为正方向。先算力怎样改变速度，再算速度怎样改变位置。</p>
+  <figure class="model-overview world-model-overview" aria-labelledby="world-model-caption">
+    <div class="model-overview-heading"><strong>学习型 World Model</strong><span>从数据中学到变化规律 · 简化示意</span></div>
+    <div id="world-model-flow" class="model-flow">
+      <svg class="model-connectors" aria-hidden="true"></svg>
+      <div class="model-card model-card-state"><div class="model-card-label"><strong>当前状态</strong><span>Internal state</span></div><p>由观测与历史信息估计</p><small>例如图像、传感器读数</small></div>
+      <div class="model-card model-card-input"><div class="model-card-label"><strong>输入</strong><span>Action</span></div><p>你想尝试的动作</p><small>例如踩油门、刹车</small></div>
+      <div class="model-card model-card-physics"><div class="model-card-label"><strong>学习到的动态模型</strong><span>Learned dynamics</span></div><p>预测动作会带来什么变化</p><small>规律来自交互数据</small></div>
+      <div class="model-card model-card-future"><div class="model-card-label"><strong>预测的未来状态</strong><span>Predicted state</span></div><p>接下来可能发生什么</p><small>也可解码为未来画面</small></div>
+    </div>
+    <figcaption id="world-model-caption"><strong>把预测的内部状态送回模型，就能继续推演。</strong>这里的状态可以是学到的向量，不必直接对应位置、速度。</figcaption>
+  </figure>
+  <p class="model-analogy">从“预测动作后果”的意义上，小车的动力学也是一个极简的世界模型。两张图展示同一种预测角色：这里用牛顿定律写出规律，学习型 World Model 则从数据中学得。学习型示意参考 <a href="https://worldmodels.github.io/" target="_blank" rel="noopener noreferrer">World Models（2018）</a>。</p>
+  <h3 class="model-workings-title">小车的物理模型具体怎么算？</h3>
+  <p class="article-copy">回到这辆小车：沿坡向上为正方向。先算力怎样改变速度，再算速度怎样改变位置。</p>
   <div class="model-row force-row">
     <div><h3>① 先算合力，再算加速度。</h3><p>加速度 <span class="math-inline" data-tex="a"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span></span> 描述速度如何变化。用 <span class="math-inline" data-tex="F"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span></span></span></span></span> 表示油门产生的驱动力。驱动力减去重力沿坡分力与阻力，就是合力；合力除以质量，得到实际加速度。</p></div>
     <div class="force-equation" role="math" aria-label="质量乘实际加速度，等于驱动力，减去质量乘重力加速度乘坡度的正弦，再减去阻力系数乘速度">
@@ -1089,20 +1109,22 @@ function makeCartPlanner(options={}) {
   function vehicle(svg,x,y,angle,p,scale,iconScale=1){const g=node('g',{transform:`translate(${x} ${y}) rotate(${angle})`}),body=node('g',{transform:`scale(${iconScale})`});g.append(body);body.append(node('line',{x1:-27,y1:-9,x2:27,y2:-9,stroke:'#243c33','stroke-width':3}));body.append(node('rect',{x:-32,y:-37,width:64,height:26,rx:4,fill:'#d7e7dc',stroke:'#335e4d','stroke-width':1.6}));body.append(node('path',{d:'M-21 -37 V-49 H13 V-37',fill:'#eef2e8',stroke:'#8ba18d','stroke-width':1.3}));for(const cx of[-21,21]){body.append(node('circle',{cx,cy:-8,r:8,fill:'#314b3e'}));const spoke=node('line',{x1:cx-4,y1:-8,x2:cx+4,y2:-8,stroke:'#eef2e8','stroke-width':1.2,transform:`rotate(${p*scale/8*180/Math.PI} ${cx} -8)`});body.append(spoke);}svg.append(g);return g;}
   function ground(svg,domain){const box=svg.getBoundingClientRect(),w=box.width,h=box.height;if(w<1)return null;svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();const left=62,right=w-62,scale=(right-left)/(domain.hi-domain.lo),X=p=>left+(p-domain.lo)*scale,slope=.8/Math.sqrt(9.81**2-.8**2),base=h-77+(right-left)*slope/2,Y=x=>base-(x-left)*slope,angle=-Math.atan(slope)*180/Math.PI;const path=`M 20 ${Y(20)} L ${w-20} ${Y(w-20)}`;svg.append(node('path',{d:path+` L ${w-20} ${h-40} L 20 ${h-40} Z`,fill:'#f0f3eb'}));svg.append(node('path',{d:path,fill:'none',stroke:'#7b8c7d','stroke-width':1.8}));if(svg.id==='pulse-scene'||svg.classList.contains('control-scene')){for(const p of[-8,-4,0,4,8]){const x=X(p);if(x>30&&x<w-30){svg.append(node('line',{x1:x,y1:Y(x)+2,x2:x,y2:Y(x)+8,stroke:'#b1bdac','stroke-width':1}));label(svg,x,h-9,`${p} m`,{'text-anchor':'middle','font-size':10});}}}const origin=X(0);if(origin>25&&origin<w-25){svg.append(node('line',{x1:origin,y1:Y(origin)+2,x2:origin,y2:Y(origin)+10,stroke:'#90a38d','stroke-width':1}));if(svg.id!=='pulse-scene'&&!svg.classList.contains('control-scene'))label(svg,origin,Y(origin)+27,'0 m',{'text-anchor':'middle','font-size':11});}return{w,h,X,Y,angle,scale};}
     function initModelFlow(){
-    const flow=id('model-flow'),svg=flow.querySelector('svg');
-    const paint={state:'#819882',input:'#b7805d',return:'#9cae99'};
+    for(const flow of document.querySelectorAll('.model-flow')){
+    const svg=flow.querySelector('svg'),learned=flow.closest('.world-model-overview');
+    const paint={state:learned?'#9b88b2':'#819882',input:'#b7805d',return:learned?'#b1a4be':'#9cae99'};
+    const markerId=name=>`${flow.id}-arrow-${name}`;
     function draw(){
       const bounds=flow.getBoundingClientRect();if(bounds.width<1)return;
-      const box=name=>{const r=id(`model-flow-${name}`).getBoundingClientRect();return{left:r.left-bounds.left,right:r.right-bounds.left,top:r.top-bounds.top,bottom:r.bottom-bounds.top,cx:(r.left+r.right)/2-bounds.left,cy:(r.top+r.bottom)/2-bounds.top};};
+      const box=name=>{const r=flow.querySelector(`.model-card-${name}`).getBoundingClientRect();return{left:r.left-bounds.left,right:r.right-bounds.left,top:r.top-bounds.top,bottom:r.bottom-bounds.top,cx:(r.left+r.right)/2-bounds.left,cy:(r.top+r.bottom)/2-bounds.top};};
       const state=box('state'),input=box('input'),model=box('physics'),future=box('future');
       svg.setAttribute('viewBox',`0 0 ${bounds.width} ${bounds.height}`);svg.replaceChildren();
       const defs=node('defs');
       for(const [name,color] of Object.entries(paint)){
-        const marker=node('marker',{id:`model-flow-arrow-${name}`,viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:5,markerHeight:5,orient:'auto'});
+        const marker=node('marker',{id:markerId(name),viewBox:'0 0 10 10',refX:8,refY:5,markerWidth:5,markerHeight:5,orient:'auto'});
         marker.append(node('path',{d:'M 0 0 L 10 5 L 0 10 Z',fill:color}));defs.append(marker);
       }
       svg.append(defs);
-      const arrow=(path,name='state')=>svg.append(node('path',{d:path,fill:'none',stroke:paint[name],'stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round','marker-end':`url(#model-flow-arrow-${name})`}));
+      const arrow=(path,name='state')=>svg.append(node('path',{d:path,fill:'none',stroke:paint[name],'stroke-width':1.6,'stroke-linecap':'round','stroke-linejoin':'round','marker-end':`url(#${markerId(name)})`}));
       const stacked=model.top>state.bottom;
       if(stacked){
         const joinY=(Math.max(state.bottom,input.bottom)+model.top)/2;
@@ -1118,13 +1140,14 @@ function makeCartPlanner(options={}) {
         arrow(`M ${model.right+3} ${model.cy} H ${mid} V ${future.cy} H ${future.left-6}`);
         const returnY=bounds.height-23;
         arrow(`M ${future.cx} ${future.bottom+3} V ${returnY} H 10 V ${state.cy} H ${state.left-6}`,'return');
-        label(svg,bounds.width/2,returnY-9,'继续算下一步',{'text-anchor':'middle','font-size':11,fill:'#81917f'});
+        label(svg,bounds.width/2,returnY-9,learned?'继续推演下一步':'继续算下一步',{'text-anchor':'middle','font-size':11,fill:learned?'#94849f':'#81917f'});
       }
       flow.dataset.layout=stacked?'vertical':'horizontal';
     }
     const observer=new ResizeObserver(draw);observer.observe(flow);
     for(const card of flow.querySelectorAll('.model-card'))observer.observe(card);
     draw();
+    }
   }
 
     function initControlDemos(){
