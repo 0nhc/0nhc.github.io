@@ -185,6 +185,7 @@ SOFTWARE.
   .world-model-overview .model-overview-heading strong {color:#6f6082;}
   .model-analogy {margin:14px 0 27px;font-size:12px;line-height:1.9;color:var(--muted);}
   .model-analogy a {color:var(--green);text-underline-offset:3px;}
+  .model-analogy-reference {display:block;margin-top:4px;font-size:11px;}
   .model-workings-title {font-size:18px;font-weight:500;margin:27px 0 10px;}
   @media(max-width:640px) {
     .model-flow {grid-template-columns:repeat(2,minmax(0,1fr));gap:37px 13px;padding:20px 18px 24px 28px;}
@@ -627,7 +628,7 @@ SOFTWARE.
     <figcaption id="model-overview-caption"><strong>把新状态作为下一步的当前状态，再算一次。</strong>重复这个过程，小车的整段运动就被算出来了。</figcaption>
   </figure>
   <figure class="model-overview world-model-overview" aria-labelledby="world-model-caption">
-    <div class="model-overview-heading"><strong>联想 · 学习型 World Model</strong><span>帮助理解“模型”的一个类比</span></div>
+    <div class="model-overview-heading"><strong>联想：学习型 World Model</strong><span>帮助理解“模型”的一个类比</span></div>
     <div id="world-model-flow" class="model-flow">
       <svg class="model-connectors" aria-hidden="true"></svg>
       <div class="model-card model-card-state"><div class="model-card-label"><strong>当前状态</strong><span>Internal state</span></div><p>由观测与历史信息估计</p><small>例如图像、传感器读数</small></div>
@@ -637,7 +638,7 @@ SOFTWARE.
     </div>
     <figcaption id="world-model-caption"><strong>把预测的内部状态送回模型，就能继续推演。</strong>这里的状态可以是学到的向量，不必直接对应位置、速度。</figcaption>
   </figure>
-  <p class="model-analogy">这里作一个联想：两种模型都能根据状态和动作预测未来，小车模型用物理定律写出规律，学习型 World Model 则从数据中学得。简化示意参考 <a href="https://worldmodels.github.io/" target="_blank" rel="noopener noreferrer">World Models（2018）</a>。</p>
+  <p class="model-analogy">小车的牛顿物理模型，其实就是一个简单的 World Model。<span class="model-analogy-reference">参考：<a href="https://worldmodels.github.io/" target="_blank" rel="noopener noreferrer">World Models（2018）</a></span></p>
   <h3 class="model-workings-title">小车的物理模型具体怎么算？</h3>
   <p class="article-copy">回到这辆小车：沿坡向上为正方向。先算力怎样改变速度，再算速度怎样改变位置。</p>
   <div class="model-row force-row">
